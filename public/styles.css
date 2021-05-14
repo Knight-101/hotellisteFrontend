@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+  background-color: #fffff2;
+}
+.authDiv {
+  margin: auto;
+  width: 28vw;
+  margin-top: 20vh;
+}
+#google {
+  margin-top: 5vh;
+}
+
+#Head {
+  margin-top: 3vw;
+}
