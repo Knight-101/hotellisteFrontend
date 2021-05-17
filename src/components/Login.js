@@ -83,18 +83,18 @@ function Login() {
 
        return(
           <div className="authDiv">
-            <main class="form-signin" >
+            <main className="form-signin" >
                 <form style={{lineHeight: '5rem'}}>
-                    <h1 class="h3 mb-3 fw-normal" style={{textAlign: 'center',fontSize:"2.3rem"}}>Log In</h1>
-                    <label for="inputEmail" class="visually-hidden">Email address</label>
-                    <input onChange={handleChange} style={{margin: '1.4rem 0 1.8rem 0', padding:"0.6rem"}} type="email" id="email" class="form-control" placeholder="Email address" required="" autofocus="" />
-                    <label for="inputPassword" class="visually-hidden">Password</label>
-                    <input onChange={handleChange} style={{margin: '1.4rem 0 1rem 0', padding:"0.6rem"}} type="password" id="password" class="form-control" placeholder="Password" required="" />
+                    <h1 className="h3 mb-3 fw-normal" style={{textAlign: 'center',fontSize:"2.3rem"}}>Log In</h1>
+                    <label htmlFor="inputEmail" className="visually-hidden">Email address</label>
+                    <input onChange={handleChange} style={{margin: '1.4rem 0 1.8rem 0', padding:"0.6rem"}} type="email" id="email" className="form-control" placeholder="Email address" required="" autoFocus="" />
+                    <label htmlFor="inputPassword" className="visually-hidden">Password</label>
+                    <input onChange={handleChange} style={{margin: '1.4rem 0 1rem 0', padding:"0.6rem"}} type="password" id="password" className="form-control" placeholder="Password" required="" />
                     <p style={{color: 'red'}}>{fail}</p>
                    
                     <div style={{ lineHeight: '2rem',textAlign:"left",paddingLeft:"1rem" }}><Link   to="/register" >Forgot Password?</Link><Link style={{ paddingLeft:"8rem" }}  to="/register" >Create an account?</Link></div>
                   
-                    <button onClick={submitHandler} style={{backgroundColor: '#0040ff',color:"white",fontSize:"1.2rem"}} class="w-100 btn btn-sm" type="submit">Log in</button>
+                    <button onClick={submitHandler} style={{backgroundColor: '#0040ff',color:"white",fontSize:"1.2rem"}} className="w-100 btn btn-sm" type="submit">Log in</button>
                 </form>
             </main>
                   <hr></hr><p>OR</p><hr></hr>

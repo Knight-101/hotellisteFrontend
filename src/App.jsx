@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-// import Selectpage from "./components/select";
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AuthRoute from "./components/AuthRoute";
 import Login from "./components/Login";
-import Main from "./components/Main";
 import Home from "./components/Home";
 import Register from "./components/Register";
+import Main1 from "./components/Main1";
+import Main2 from "./components/Main2";
 
 
 
@@ -23,7 +23,8 @@ function App() {
       <Route path="/register">
         <Register />
       </Route>
-      <AuthRoute path="/main" exact component={Main} />
+      <AuthRoute path="/main" exact component={Main1} />
+      <AuthRoute path="/main/hotels" exact component={Main2} />
       <Route exact path="/">
         <Home />
       </Route> 
