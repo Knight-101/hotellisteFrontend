@@ -1,33 +1,42 @@
 import React, { useState } from "react";
 import Hotelres from "./hotelres";
-import Pricerange from "./price-range";
 import Searchbutton from "./search-button";
 import Mainbar from "./main-bar";
+import Filters from "./filter";
 
 const Selectpage = () => {
   const [items, setItems] = useState([]);
+  const [ogitems, setogItems] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const baseurl = "http://127.0.0.1:8000/hotels/list/";
   const [url, setUrl] = useState("");
   let locInput = React.createRef();
   let guestInput = React.createRef();
+  let priceInput = React.createRef();
+  let ratingInput = React.createRef();
 
   const getData = () => {
     var input_ = locInput.current.value;
-    console.log(input_);
-
-    console.log("values:", locInput.current.value, guestInput.current.value);
-
     setUrl(baseurl + input_);
-    console.log(url);
 
     fetch(url)
       .then((res) => res.json())
       .then((json) => {
         setItems(json);
+        setogItems(json);
         setLoaded(true);
       });
+
   };
+
+  const updateData = () => {
+    setItems(filterData(ogitems,ratingInput.current.value,priceInput.current.value));
+  }
+
+  const filterData = (data, sel_rating, sel_price) => {
+    var filtered_data = data.filter( element => element.Rating >= sel_rating && element.price >= sel_price)
+    return filtered_data;
+  }
 
   if (!isLoaded) {
     return (
@@ -48,8 +57,13 @@ const Selectpage = () => {
   } else {
     return (
       <div>
-        <Pricerange></Pricerange>
-        <Searchbutton></Searchbutton>
+          <Mainbar
+          button_func={getData}
+          loc_ref={locInput}
+          guest_ref={guestInput}
+        ></Mainbar>
+        <Filters min_p = {0} max_p = {50000} step_p={100} p_ref = {priceInput} st_ref = {ratingInput} />
+        <Searchbutton onClick={updateData}></Searchbutton>
         {items.map((item) => (
           <Hotelres
             name={item.Name}

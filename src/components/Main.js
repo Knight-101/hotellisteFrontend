@@ -41,7 +41,6 @@ function Main() {
   });
   return (
     <div>
-      <p>Logged In</p>
       <Selectpage />
       <button onClick={signOut}>Log Out</button>
     </div>
