@@ -1,23 +1,22 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useGoogleLogout } from "react-google-login";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
-import Selectpage from "./select";
+import HotelList from "./MainComponents/hotelList";
 
-function Main() {
+function Main2() {
   const history = useHistory();
-  useEffect(() => {
-    axios
-      .get("http://localhost:8000/main", {
-        headers: { Authorization: localStorage.getItem("token") },
-      })
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+//   useEffect(() => {
+//     axios
+//       .get("http://localhost:8000/main", {
+//         headers: { Authorization: localStorage.getItem("token") },
+//       })
+//       .then((res) => {
+//         console.log(res.data);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   }, []);
 
   const onFailure = (e) => {
     console.log(e);
@@ -41,10 +40,10 @@ function Main() {
   });
   return (
     <div>
-      <Selectpage />
+      <HotelList />
       <button onClick={signOut}>Log Out</button>
     </div>
   );
 }
 
-export default Main;
+export default Main2;

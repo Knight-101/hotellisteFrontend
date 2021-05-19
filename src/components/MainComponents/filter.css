@@ -1,0 +1,21 @@
+.filter-master{
+    /* border: 2px solid black; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-child{
+    /* border: 1px solid black; */
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#range-slider{
+    text-align: center;
+}

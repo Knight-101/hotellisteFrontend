@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 
@@ -10,6 +10,12 @@ function Register() {
     email: "",
     password: "",
   });
+  useEffect(() => {
+    const accessToken = localStorage.getItem("token");
+    if (accessToken) {
+      history.push("/main");
+    }
+  }, [history]);
 
   const handleChange = (event) => {
     const { id, value } = event.target;
@@ -33,15 +39,15 @@ function Register() {
   };
   return (
     <div className="authDiv">
-      <main class="form-signin">
+      <main className="form-signin">
         <form style={{ lineHeight: "5rem" }}>
           <h1
-            class="h3 mb-3 fw-normal"
+            className="h3 mb-3 fw-normal"
             style={{ textAlign: "center", fontSize: "2.3rem" }}
           >
             Register
           </h1>
-          <label for="firstName" class="visually-hidden">
+          <label htmlFor="firstName" className="visually-hidden">
             firstName
           </label>
           <input
@@ -49,11 +55,11 @@ function Register() {
             style={{ margin: "1.4rem 0 1rem 0", padding: "0.6rem" }}
             type="name"
             id="firstName"
-            class="form-control"
+            className="form-control"
             placeholder="First Name"
             required=""
           />
-          <label for="lastName" class="visually-hidden">
+          <label htmlFor="lastName" className="visually-hidden">
             lastName
           </label>
           <input
@@ -61,11 +67,11 @@ function Register() {
             style={{ margin: "1.4rem 0 1rem 0", padding: "0.6rem" }}
             type="name"
             id="lastName"
-            class="form-control"
+            className="form-control"
             placeholder="Last Name"
             required=""
           />
-          <label for="inputEmail" class="visually-hidden">
+          <label htmlFor="inputEmail" className="visually-hidden">
             Email address
           </label>
           <input
@@ -73,12 +79,12 @@ function Register() {
             style={{ margin: "1.4rem 0 1.8rem 0", padding: "0.6rem" }}
             type="email"
             id="email"
-            class="form-control"
+            className="form-control"
             placeholder="Email Address"
             required=""
-            autofocus=""
+            autoFocus=""
           />
-          <label for="inputPassword" class="visually-hidden">
+          <label htmlFor="inputPassword" className="visually-hidden">
             Password
           </label>
           <input
@@ -86,7 +92,7 @@ function Register() {
             style={{ margin: "1.4rem 0 1rem 0", padding: "0.6rem" }}
             type="password"
             id="password"
-            class="form-control"
+            className="form-control"
             placeholder="Password"
             required=""
           />
@@ -97,7 +103,7 @@ function Register() {
               color: "white",
               fontSize: "1.2rem",
             }}
-            class="w-100 btn btn-sm"
+            className="w-100 btn btn-sm"
             type="submit"
           >
             Register
