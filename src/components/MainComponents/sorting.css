@@ -1,0 +1,18 @@
+.sorting-master{
+    width: 100%;
+    min-width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.sorting-child{
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 1000px){
+    .sorting-child{
+        width: 75%;
+    }
+}

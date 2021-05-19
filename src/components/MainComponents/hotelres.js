@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Hoteldiv = ({name, location, image, rating, price, onclick}) => {
     const guests = useSelector((state => state.input.guests))
-    var stars = '☆'.repeat(rating);
+    var stars = '★'.repeat(rating) + '☆'.repeat(5-rating);
 
 
     return(

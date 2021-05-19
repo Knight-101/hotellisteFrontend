@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import Hotelres from "./hotelres";
-import Pricerange from "./price-range";
-import Searchbutton from "./search-button";
+import Rangeslider from "./filter";
+// import Searchbutton from "./search-button";
 import Mainbar from "./main-bar";
 import "./hotelList.css";
+import Sorting from "./sorting";
 
 
 const HotelList = () => {
@@ -31,10 +32,11 @@ const HotelList = () => {
   }, [location])
 
   return (
-      <div>
+      <div className="mega-master">
         <Mainbar />
-        <Pricerange />
         {/* <Searchbutton /> */}
+        <Rangeslider min_p={0} max_p={100000} />
+        <Sorting />
         <div id="listBody">
           {items.map((item) => (
             <Hotelres
