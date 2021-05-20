@@ -1,16 +1,17 @@
 .master {
   display: grid;
-  width: 80%;
+  width: 60%;
   margin: auto;
-  padding: 10px;
+  margin-top: 1rem;
+  padding: 5px 20px;
+  border-radius: 10px;
   background-color: white;
 }
-.datebuttonwrap{
+.datebuttonwrap {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-
 }
 
 .location-main {
@@ -22,9 +23,6 @@
   justify-content: center;
   align-items: center;
 }
-
-
-
 
 .guests-main {
   grid-column-start: 3;
@@ -49,14 +47,20 @@
 .button-main {
   grid-column-start: 7;
   grid-column-end: 8;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* .inputArea {
+  padding: 2px;
+} */
+.date-end-main {
+  font-size: 1rem !important;
+}
+
 @media (max-width: 900px) {
-  .master{
+  .master {
     width: 100%;
   }
   .location-main {

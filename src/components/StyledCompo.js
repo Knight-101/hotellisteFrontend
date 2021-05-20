@@ -15,6 +15,8 @@ const StyledLink = styled(Link)`
       margin-left:80vw;
       background-color:#0040ff;
       padding:0.57rem 1.2rem 0.7rem 1.2rem;
+      margin-top:1.5rem;
+      height:2.7rem;
       border-radius:5px;
       color:White;
       :hover {

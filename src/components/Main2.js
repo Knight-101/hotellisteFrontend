@@ -2,6 +2,7 @@ import React from "react";
 import { useGoogleLogout } from "react-google-login";
 import { useHistory } from "react-router-dom";
 import HotelList from "./MainComponents/hotelList";
+import NavBar from "./Navbar";
 
 function Main2() {
   const history = useHistory();
@@ -40,6 +41,7 @@ function Main2() {
   });
   return (
     <div>
+      <NavBar />
       <HotelList />
       <button onClick={signOut}>Log Out</button>
     </div>

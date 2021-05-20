@@ -61,27 +61,36 @@ const Mainbar = (props) => {
 
   return (
     <div className="master">
-      <div className="location-main">
-        location
-        <input
-          onChange={handleChange}
-          type="text"
-          placeholder="State"
-          id="stateName"
-          value={inputData.stateName}
-        ></input>
-      </div>
-      <div className="guests-main">
-        Guests
-        <input
-          onChange={handleChange}
-          type="number"
-          placeholder="Guests"
-          id="guests"
-          value={inputData.guests}
-        ></input>
-      </div>
+      <div class="location-main" >
+      <label htmlFor="location" class="form-label" style={{paddingLeft:"1rem"}} >Location</label>
+      <select onChange={handleChange} name="location" id="stateName"  class="form-select" aria-label="State select">
+        <option selected>{inputData.stateName?inputData.stateName:"Select Location"}</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option>
 
+      </select>  
+      </div>
+      <div class="guests-main ">
+        <label htmlFor="guests" class="form-label" style={{paddingLeft:"1rem"}}>Guests</label>
+        <input  onChange={handleChange}  class="form-control" id="guests" placeholder="" type="number" value={inputData.guests}/>
+      </div>
+      
       <div className="date-master">
         <DatePicker
           selected={selectedStartDate}
@@ -121,7 +130,7 @@ const Mainbar = (props) => {
         />
       </div>
       <div className="button-main">
-        <button onClick={handleClick}>Search</button>
+      <button onClick={handleClick} type="button" class="btn btn-primary">Search</button>
       </div>
     </div>
   );

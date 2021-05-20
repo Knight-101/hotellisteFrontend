@@ -1,13 +1,28 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 const AuthRoute = ({ component: Component, ...rest }) => {
-    const token = localStorage.getItem('token');
+    const [auth, setauth] = useState(true)
+    axios
+        .get("http://localhost:8000/main", {
+            headers: { Authorization: localStorage.getItem("token") },
+          })
+        .then((res) => {
+            if (res.data.message==="jwt expired" ||res.data.message=== "jwt malformed") {
+              setauth(false)
+              localStorage.clear()
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      
     return (
         <Route
             {...rest}
             render={(props) =>
-                token ? <Component {...props} /> : <Redirect to="/login" />
+                auth ? <Component {...props} /> : <Redirect to="/" />
             }
         />
     );

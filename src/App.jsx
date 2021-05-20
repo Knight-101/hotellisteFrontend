@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import Main1 from "./components/Main1";
 import Main2 from "./components/Main2";
+import CheckOut from "./components/Checkout";
 
 
 
@@ -16,6 +17,9 @@ function App() {
   return (
     <Router>
     <Switch>
+    <Route path="/main/checkout">
+        <CheckOut />
+      </Route>
       
       <Route path="/login">
         <Login />

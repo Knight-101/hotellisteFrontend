@@ -2,6 +2,7 @@ import React,{useState,useEffect} from "react";
 import GoogleLogin from 'react-google-login';
 import axios from "axios";
 import {Link, useHistory} from "react-router-dom"
+import NavBar from "./Navbar";
 
 
 function Login() {
@@ -62,7 +63,7 @@ function Login() {
             email: email
           })
           .then((res)=> {
-            
+            console.log(res.data)
             if (res.data.ok) {
               localStorage.setItem('token',res.data.token);
               history.push("/main");
@@ -82,7 +83,9 @@ function Login() {
     
 
        return(
+         <div>
           <div className="authDiv">
+          
             <main className="form-signin" >
                 <form style={{lineHeight: '5rem'}}>
                     <h1 className="h3 mb-3 fw-normal" style={{textAlign: 'center',fontSize:"2.3rem"}}>Log In</h1>
@@ -107,6 +110,7 @@ function Login() {
                   redirectUri="http://localhost:3000/main"
                   cookiePolicy={'single_host_origin'} />
                  </div>
+        </div>
         </div>);
       
       

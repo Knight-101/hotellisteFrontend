@@ -10,8 +10,8 @@ function LogOut() {
     console.log(e);
   };
 
-  const onLogoutSuccess = (e) => {
-    e.preventDefault()
+  const onLogoutSuccess = () => {
+
     const isTokenExists = localStorage.getItem("token");
     if (isTokenExists) {
       localStorage.removeItem("token");
@@ -28,8 +28,9 @@ function LogOut() {
     onFailure
   });
   return (
-    <div>
-      <button onClick={signOut}>Log Out</button>
+    <div onClick={signOut}>
+    <button style={{border:"none",backgroundColor:"white"}}>Log Out</button>
+      
     </div>
   );
 }
