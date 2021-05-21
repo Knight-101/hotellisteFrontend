@@ -21,6 +21,9 @@ const Hoteldiv = ({name, location, image, rating, price}) => {
     return(
         <div className="hotel-master">
             <div className="image-master">
+                <div className="discount-shape"></div>
+                <div className="discount-shape-2"></div>
+                <div className="discount">20% off</div>
                 <img className="image" alt="" src={image}></img>
             </div>
             <div className="data-master">
@@ -28,7 +31,7 @@ const Hoteldiv = ({name, location, image, rating, price}) => {
                 <div id="rating-grid" className="grid-child">{stars}</div>
                 <div id="location-grid" className="grid-child">{location}</div>
                 <div id="price-grid" className="grid-child">
-                    <h5>Price: ₹{price*guests}</h5>
+                    Price: ₹ <s>{price}</s>&nbsp;{price*0.80}
                 </div>
                 <div id="button-grid" className="grid-child">
                     <button onClick={onclick} type="button" className="btn btn-primary book-btn">BOOK</button>

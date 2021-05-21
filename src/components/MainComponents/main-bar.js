@@ -6,6 +6,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { setData } from "../../Redux/inputData/inputDataActions";
 import "date-fns";
+import Grid from "@material-ui/core/Grid";
+import DateFnsUtils from "@date-io/date-fns";
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from "@material-ui/pickers";
 
 const Mainbar = (props) => {
   const dispatch = useDispatch();
@@ -61,76 +68,107 @@ const Mainbar = (props) => {
 
   return (
     <div className="master">
-      <div class="location-main" >
-      <label htmlFor="location" class="form-label" style={{paddingLeft:"1rem"}} >Location</label>
-      <select onChange={handleChange} name="location" id="stateName"  class="form-select" aria-label="State select">
-        <option selected>{inputData.stateName?inputData.stateName:"Select Location"}</option>
-        <option value="Andhra Pradesh">Andhra Pradesh</option>
-        <option value="Assam">Assam</option>
-        <option value="Chhattisgarh">Chhattisgarh</option>
-        <option value="Gujarat">Gujarat</option>
-        <option value="Haryana">Haryana</option>
-        <option value="Jharkhand">Jharkhand</option>
-        <option value="Karnataka">Karnataka</option>
-        <option value="Kerala">Kerala</option>
-        <option value="Madhya Pradesh">Madhya Pradesh</option>
-        <option value="Maharashtra">Maharashtra</option>
-        <option value="Odisha">Odisha</option>
-        <option value="Punjab">Punjab</option>
-        <option value="Rajasthan">Rajasthan</option>
-        <option value="Tamil Nadu">Tamil Nadu</option>
-        <option value="Telangana">Telangana</option>
-        <option value="Uttar Pradesh">Uttar Pradesh</option>
-        <option value="Uttarakhand">Uttarakhand</option>
-        <option value="West Bengal">West Bengal</option>
+      <div class="location-main" style={{ display: "inline-block" }}>
+        <label htmlFor="location" class="form-label">
+          Location&nbsp;
+        </label>
+        <select
+          onChange={handleChange}
+          name="location"
+          id="stateName"
+          class="form-select"
+          aria-label="State select"
+        >
+          <option selected>
+            {inputData.stateName ? inputData.stateName : "Select Location"}
+          </option>
+          <option value="Andhra Pradesh">Andhra Pradesh</option>
+          <option value="Assam">Assam</option>
+          <option value="Chhattisgarh">Chhattisgarh</option>
+          <option value="Gujarat">Gujarat</option>
+          <option value="Haryana">Haryana</option>
+          <option value="Jharkhand">Jharkhand</option>
+          <option value="Karnataka">Karnataka</option>
+          <option value="Kerala">Kerala</option>
+          <option value="Madhya Pradesh">Madhya Pradesh</option>
+          <option value="Maharashtra">Maharashtra</option>
+          <option value="Odisha">Odisha</option>
+          <option value="Punjab">Punjab</option>
+          <option value="Rajasthan">Rajasthan</option>
+          <option value="Tamil Nadu">Tamil Nadu</option>
+          <option value="Telangana">Telangana</option>
+          <option value="Uttar Pradesh">Uttar Pradesh</option>
+          <option value="Uttarakhand">Uttarakhand</option>
+          <option value="West Bengal">West Bengal</option>
+          <option value="">All</option>
+        </select>
+      </div>
+      <div class="guests-main" style={{ display: "inline-block" }}>
+        <label htmlFor="guests" class="form-label">
+          Guests
+        </label>
+        <input
+          onChange={handleChange}
+          class="form-control"
+          id="guests"
+          placeholder=""
+          type="number"
+          value={inputData.guests}
+          min={0}
+        />
+      </div>
 
-      </select>  
-      </div>
-      <div class="guests-main ">
-        <label htmlFor="guests" class="form-label" style={{paddingLeft:"1rem"}}>Guests</label>
-        <input  onChange={handleChange}  class="form-control" id="guests" placeholder="" type="number" value={inputData.guests}/>
-      </div>
-      
       <div className="date-master">
-        <DatePicker
-          selected={selectedStartDate}
-          wrapperClassName="date-start-wrap"
-          className="date-start-main"
-          customInput={<ExampleCustomInput />}
-          withPortal
-          onChange={(date) => {
-            setSelectedStartDate(date);
-            console.log(date);
-            setInputData((prevData) => {
-              return {
-                ...prevData,
-                startDate: Date.parse(date),
-              };
-            });
-          }}
-          dateFormat="dd/MM/yyyy"
-          minDate={new Date()}
-        />
-        <DatePicker
-          selected={selectedEndDate ? selectedEndDate : selectedStartDate}
-          wrapperClassName="date-end-wrap"
-          className="date-end-main"
-          customInput={<ExampleCustomInput />}
-          onChange={(date) => {
-            setSelectedEndDate(date);
-            setInputData((prevData) => {
-              return {
-                ...prevData,
-                endDate: Date.parse(date),
-              };
-            });
-          }}
-          dateFormat="dd/MM/yyyy"
-          minDate={selectedStartDate}
-        />
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <Grid container justify="space-around">
+            <KeyboardDatePicker
+              margin="normal"
+              id="date-picker-dialog"
+              label="Date picker dialog"
+              format="dd/MM/yyyy"
+              value={selectedStartDate}
+              minDate={new Date()}
+              onChange={(date) => {
+                setSelectedStartDate(date);
+                console.log(date);
+                setInputData((prevData) => {
+                  return {
+                    ...prevData,
+                    startDate: Date.parse(date),
+                  };
+                });
+              }}
+              KeyboardButtonProps={{
+                "aria-label": "change date",
+              }}
+            />
+            <KeyboardDatePicker
+              margin="normal"
+              id="date-picker-dialog"
+              label="Date picker dialog"
+              format="dd/MM/yyyy"
+              value={selectedEndDate ? selectedEndDate : selectedStartDate}
+              minDate={selectedStartDate}
+              onChange={(date) => {
+                setSelectedEndDate(date);
+                setInputData((prevData) => {
+                  return {
+                    ...prevData,
+                    endDate: Date.parse(date),
+                  };
+                });
+              }}
+              KeyboardButtonProps={{
+                "aria-label": "change date",
+              }}
+            />
+          </Grid>
+        </MuiPickersUtilsProvider>
       </div>
       <div className="button-main">
-      <button onClick={handleClick} type="button" class="btn btn-primary">Search</button>
+        <button onClick={handleClick} type="button" class="btn btn-primary">
+          Search
+        </button>
       </div>
     </div>
   );

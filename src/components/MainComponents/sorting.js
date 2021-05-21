@@ -6,19 +6,19 @@ import "./sorting.css"
 const marks = [
   {
     value: 1,
-    label: "Price: High to Low",
+    label: <span style={{fontSize: 12}}>Price: High to Low</span>,
   },
   {
     value: 2,
-    label: "Price: Low to High",
+    label: <span style={{fontSize: 12}}>Price: Low to High</span>,
   },
   {
     value: 3,
-    label: "Rating: Ascending",
+    label: <span style={{fontSize: 12}}>Rating: Ascending</span>,
   },
   {
     value: 4,
-    label: "Rating: Descending",
+    label: <span style={{fontSize: 12}}>Rating: Descending</span>,
   },
 ];
 
@@ -26,13 +26,14 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-export default function DiscreteSlider() {
+export default function DiscreteSlider(props) {
 
     const [sortVal, setsortVal] = useState(1)
 
     const handleChange = (event, newValue) => {
         setsortVal(newValue);
         console.log(sortVal);
+        localStorage.setItem("sorting_param", sortVal);
       };
 
   return (
@@ -42,6 +43,7 @@ export default function DiscreteSlider() {
           Sort By
         </Typography>
         <Slider
+
           defaultValue={1}
           getAriaValueText={valuetext}
           aria-labelledby="discrete-slider"

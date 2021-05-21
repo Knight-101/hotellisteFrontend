@@ -50,15 +50,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 }
 
-/* .inputArea {
-  padding: 2px;
-} */
 .date-end-main {
   font-size: 1rem !important;
 }
-
 @media (max-width: 900px) {
   .master {
     width: 100%;
