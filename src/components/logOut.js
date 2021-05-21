@@ -11,26 +11,24 @@ function LogOut() {
   };
 
   const onLogoutSuccess = () => {
-
     const isTokenExists = localStorage.getItem("token");
     if (isTokenExists) {
       localStorage.removeItem("token");
       localStorage.removeItem("persist:root");
       history.push("/login");
     }
-    
   };
 
-  
   const { signOut } = useGoogleLogout({
     clientId,
     onLogoutSuccess,
-    onFailure
+    onFailure,
   });
   return (
     <div onClick={signOut}>
-    <button style={{border:"none",backgroundColor:"white"}}>Log Out</button>
-      
+      <button style={{ border: "none", backgroundColor: "white" }}>
+        Log Out
+      </button>
     </div>
   );
 }
