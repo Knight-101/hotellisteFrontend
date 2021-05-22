@@ -1,24 +1,32 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
-import "./sorting.css"
+import "./sorting.css";
 
 const marks = [
   {
     value: 1,
-    label: "Price: High to Low",
+    label: (
+      <span style={{ fontSize: 12, color: "white" }}>Price: High to Low</span>
+    ),
   },
   {
     value: 2,
-    label: "Price: Low to High",
+    label: (
+      <span style={{ fontSize: 12, color: "white" }}>Price: Low to High</span>
+    ),
   },
   {
     value: 3,
-    label: "Rating: Ascending",
+    label: (
+      <span style={{ fontSize: 12, color: "white" }}>Rating: Ascending</span>
+    ),
   },
   {
     value: 4,
-    label: "Rating: Descending",
+    label: (
+      <span style={{ fontSize: 12, color: "white" }}>Rating: Descending</span>
+    ),
   },
 ];
 
@@ -26,14 +34,14 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-export default function DiscreteSlider() {
+export default function DiscreteSlider(props) {
+  const [sortVal, setsortVal] = useState(1);
 
-    const [sortVal, setsortVal] = useState(1)
-
-    const handleChange = (event, newValue) => {
-        setsortVal(newValue);
-        console.log(sortVal);
-      };
+  const handleChange = (event, newValue) => {
+    setsortVal(newValue);
+    console.log(sortVal);
+    localStorage.setItem("sorting_param", sortVal);
+  };
 
   return (
     <div className="sorting-master">
@@ -49,6 +57,7 @@ export default function DiscreteSlider() {
           step={1}
           marks={marks}
           min={1}
+          style={{ color: "#0d8f8f" }}
           track={false}
           max={4}
         />

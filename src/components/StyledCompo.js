@@ -8,15 +8,16 @@ const styledHeader = styled.div`
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;
-  background-color: #0040ff;
+  background-color: #0d8f8f;
   padding: 0.3rem 0.8rem;
   margin-top: 1.5rem;
   height: 2.7rem;
   border-radius: 5px;
   color: White;
   :hover {
-    background-color: #fffff2;
+    background-color: #0d8f8f;
     transition: 0.5s;
+    color: White;
   }
 `;
 

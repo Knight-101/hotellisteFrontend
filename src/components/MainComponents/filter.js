@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
-import Tooltip from '@material-ui/core/Tooltip';
+import Tooltip from "@material-ui/core/Tooltip";
 import "./filter.css";
 
 const useStyles = makeStyles({
@@ -13,24 +13,32 @@ const useStyles = makeStyles({
   },
 });
 
-
-const RangeSlider = (min_p, max_p) => {
+const RangeSlider = (props) => {
   const classes = useStyles();
-  const [pricevalue, setpriceValue] = useState([1000, 10000]);
+  const [pricevalue, setpriceValue] = useState([0, 20000]);
   const [ratingvalue, setratingValue] = useState([1, 5]);
+
+  const sortingDetails = JSON.stringify({
+    price_value: pricevalue,
+    rating_value: ratingvalue,
+  })
+
+  localStorage.setItem("sorting_details", sortingDetails)
+
 
   const handleChange = (event, newValue) => {
     setpriceValue(newValue);
-    // console.log(newValue)
+    localStorage.setItem("sorting_details", sortingDetails)
   };
 
   const ratinghandleChange = (event, newValue) => {
     setratingValue(newValue);
+    localStorage.setItem("sorting_details", sortingDetails)
   };
 
   function ValueLabelComponent(props) {
     const { children, open, value } = props;
-  
+
     return (
       <Tooltip open={open} enterTouchDelay={0} placement="bottom" title={value}>
         {children}
@@ -40,57 +48,57 @@ const RangeSlider = (min_p, max_p) => {
 
   function StarLabelComponent(props) {
     const { children, open } = props;
-  
+
     return (
       <Tooltip open={open} enterTouchDelay={0} placement="bottom" title="">
         {children}
       </Tooltip>
     );
   }
-  
 
   const starmarks = [
     {
       value: 1,
-      label: "★☆☆☆☆"
+      label: <span style={{color: "white"}}>★☆☆☆☆</span>,
     },
     {
       value: 2,
-      label: "★★☆☆☆"
+      label: <span style={{color: "white"}}>★★☆☆☆</span>,
     },
     {
       value: 3,
-      label: "★★★☆☆"
+      label: <span style={{color: "white"}}>★★★☆☆</span>,
     },
     {
       value: 4,
-      label: "★★★★☆"
+      label: <span style={{color: "white"}}>★★★★☆</span>,
     },
     {
       value: 5,
-      label: "★★★★★"
-    }
+      label: <span style={{color: "white"}}>★★★★★</span>,
+    },
   ];
 
   const pricemarks = [
     {
       value: 0,
-      label: "min"
+      label: <span style={{color: "white"}}>min</span>,
     },
     {
-      value: 100000,
-      label: "max"
-    }
-  ]
+      value: 20000,
+      label: <span style={{color: "white"}}>max</span>,
+    },
+  ];
 
   return (
     <div className="filter-master">
       <div className="filter-child">
         <div className={classes.root}>
-          <Typography id="range-slider" gutterBottom>
+          <Typography id="range-slider" gutterBottom color="white">
             Price range
           </Typography>
           <Slider
+            innerRef={props.price_ref}
             value={pricevalue}
             ValueLabelComponent={ValueLabelComponent}
             onChange={handleChange}
@@ -98,8 +106,9 @@ const RangeSlider = (min_p, max_p) => {
             aria-labelledby="range-slider"
             marks={pricemarks}
             min={0}
-            max={100000}
+            max={20000}
             step={100}
+            style={{color: "#0d8f8f"}}
           />
         </div>
         <div className={classes.root}>
@@ -114,12 +123,13 @@ const RangeSlider = (min_p, max_p) => {
             aria-labelledby="range-slider"
             marks={starmarks}
             min={1}
+            style={{color: "#0d8f8f"}}
             max={5}
           />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default RangeSlider;

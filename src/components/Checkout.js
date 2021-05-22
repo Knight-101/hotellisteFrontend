@@ -11,6 +11,10 @@ function Checkout() {
   const HotelData = JSON.parse(localStorage.getItem("HotelData"));
   const startDate = GetFormattedDate(HotelData.hotelStartDate);
   const endDate = GetFormattedDate(HotelData.hotelEndDate);
+  const priceBeforetax = parseInt(
+    HotelData.hotelPrice * (1 - HotelData.hotelDiscount / 100)
+  );
+  const priceTax = parseInt(0.18 * priceBeforetax);
 
   function GetFormattedDate(date) {
     var todayTime = new Date(date);
@@ -55,7 +59,7 @@ function Checkout() {
             <h4>Booking Details</h4>
             <hr></hr>
             <div id="hotelData">
-              <div>
+              <div id="img-mas">
                 <img id="hotelImg" src={HotelData.hotelImg} alt="hotelImage" />
               </div>
               <div id="contentsText">
@@ -70,18 +74,18 @@ function Checkout() {
                 </div>
                 <div id="start">
                   <div>
-                    <h2>Check In</h2>
+                    <h3>Check In</h3>
                   </div>
                   <div>
-                    <h2>{startDate}</h2>
+                    <h3>{startDate}</h3>
                   </div>
                 </div>
                 <div id="end">
                   <div>
-                    <h2>Check Out</h2>
+                    <h3>Check Out</h3>
                   </div>
                   <div>
-                    <h2>{endDate}</h2>
+                    <h3>{endDate}</h3>
                   </div>
                 </div>
               </div>
@@ -96,7 +100,7 @@ function Checkout() {
                   safety measures guidelines.
                 </li>
                 <li>Only Bachelors allowed</li>
-                <li>Only Crypto are accepted</li>
+                <li>Only Cryptocurrencies are accepted</li>
                 <li>There are no restrictions on alcohol consumption.</li>
                 <li>
                   The primary guest checking in to the hotel must be at least 18
@@ -112,25 +116,28 @@ function Checkout() {
             <hr></hr>
             <div id="breakup">
               <div>Base Price </div>
-              <div></div>
-              <div>Discount</div>
-              <div></div>
-              <div>Price after Discount</div>
               <div>
                 <span>&#8377;</span>
                 {HotelData.hotelPrice}
               </div>
+              <div>Discount</div>
+              <div>{HotelData.hotelDiscount}%</div>
+              <div>Price after Discount</div>
+              <div>
+                <span>&#8377;</span>
+                {priceBeforetax}
+              </div>
               <div>Taxes and Services</div>
               <div>
                 <span>&#8377;</span>
-                {0.18 * HotelData.hotelPrice}
+                {priceTax}
               </div>
               <div>
                 <h5>Total Amount</h5>
               </div>
               <div>
                 <span>&#8377;</span>
-                {HotelData.hotelPrice + 0.18 * HotelData.hotelPrice}
+                {priceBeforetax + priceTax}
               </div>
             </div>
           </div>
@@ -140,7 +147,9 @@ function Checkout() {
             BOOK NOW
           </button>
         </div> */}
-        <BookButton bookFunc={Book} />
+        <div id="item3">
+          <BookButton bookFunc={Book} />
+        </div>
       </div>
     </div>
   );

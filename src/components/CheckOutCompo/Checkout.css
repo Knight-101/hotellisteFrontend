@@ -3,13 +3,13 @@
   grid-template-columns: 7fr 2fr;
   grid-gap: 1rem;
   margin: 7vw 8vw;
-  /* height: 10px;
-  width: 10px; */
+  color: white;
 }
 
 .item {
-  background-color: white;
-  border-style: outset;
+  background-color: rgb(58,58,58);
+  /* border-style: outset; */
+  border: 2px dashed #0d8f8f;
 }
 
 #item1 {
@@ -63,7 +63,7 @@
   width: 80%;
   margin: auto;
   margin-top: 3rem;
-  border: solid black;
+  border: solid #0d8f8f;
   padding: 1.2rem;
 }
 
@@ -85,4 +85,56 @@
 
 #item3 {
   border-style: none;
+}
+
+@media (max-width: 1200px){
+  #checkout-master{
+    display: block;
+  }
+
+  #item2{
+    max-width: 500px;
+    margin-top: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) ;
+  }
+
+  #item3{
+    max-width: 500px;
+    margin-top: 30px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) ;
+  }
+
+}
+
+@media (max-width: 1000px){
+
+  #hotelData{
+    display: block;
+  }
+
+  #img-mas{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  #checkout-master{
+    margin: 7vw 4vw;
+  }
+
+}
+
+.book-button-checkout{
+  background-color: #0d8f8f;
+  border: none;
+}
+
+.book-button-checkout:hover, .book-button-checkout:active{
+  background-color: #0d8f8f;
+  border: none;
 }

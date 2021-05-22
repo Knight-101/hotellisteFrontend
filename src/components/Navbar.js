@@ -78,14 +78,15 @@ export default function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar style={{ backgroundColor: "#0d6efd" }} position="static">
+      <AppBar style={{ backgroundColor: "#0d8f8f", height: 150 }} position="static">
         <Toolbar>
           {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton> */}
+          <img id="logo" src="Images/kachra.png" alt="logo" />
 
-          <Typography variant="h6" className={classes.title}>
-            Welcome {fname}!
+          <Typography variant="h6"  className={classes.title}>
+            <span style={{color: "white"}}>Welcome {fname}!</span>
           </Typography>
           <div>
             <IconButton
