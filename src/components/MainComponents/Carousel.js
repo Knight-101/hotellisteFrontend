@@ -11,10 +11,10 @@ const Carousel = () => {
                     <img src="Images/pic1.jpg" className="d-block w-100" alt="..." />
                 </div>
                <div className="carousel-item" data-bs-interval="2000">
-                    <img src="Images/pic2.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://www.mymaldives.com.au/wp-content/uploads/sites/11/2016/12/Beach-Banner.jpg" className="d-block w-100" alt="..." />
                 </div>
                 <div className="carousel-item">
-                    <img src="Images/pic3.jpg" className="d-block w-100" alt="..." />
+                    <img src="https://www.phdmedia.com/china/wp-content/uploads/sites/32/2017/08/Banner-for-TWiD-4-e1499162744863.jpg" className="d-block w-100" alt="..." />
                 </div>
             </div>
            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

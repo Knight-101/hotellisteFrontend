@@ -59,34 +59,34 @@ const RangeSlider = (props) => {
   const starmarks = [
     {
       value: 1,
-      label: "★☆☆☆☆",
+      label: <span style={{color: "white"}}>★☆☆☆☆</span>,
     },
     {
       value: 2,
-      label: "★★☆☆☆",
+      label: <span style={{color: "white"}}>★★☆☆☆</span>,
     },
     {
       value: 3,
-      label: "★★★☆☆",
+      label: <span style={{color: "white"}}>★★★☆☆</span>,
     },
     {
       value: 4,
-      label: "★★★★☆",
+      label: <span style={{color: "white"}}>★★★★☆</span>,
     },
     {
       value: 5,
-      label: "★★★★★",
+      label: <span style={{color: "white"}}>★★★★★</span>,
     },
   ];
 
   const pricemarks = [
     {
       value: 0,
-      label: "min",
+      label: <span style={{color: "white"}}>min</span>,
     },
     {
       value: 20000,
-      label: "max",
+      label: <span style={{color: "white"}}>max</span>,
     },
   ];
 
@@ -94,7 +94,7 @@ const RangeSlider = (props) => {
     <div className="filter-master">
       <div className="filter-child">
         <div className={classes.root}>
-          <Typography id="range-slider" gutterBottom>
+          <Typography id="range-slider" gutterBottom color="white">
             Price range
           </Typography>
           <Slider
@@ -108,6 +108,7 @@ const RangeSlider = (props) => {
             min={0}
             max={20000}
             step={100}
+            style={{color: "#0d8f8f"}}
           />
         </div>
         <div className={classes.root}>
@@ -122,6 +123,7 @@ const RangeSlider = (props) => {
             aria-labelledby="range-slider"
             marks={starmarks}
             min={1}
+            style={{color: "#0d8f8f"}}
             max={5}
           />
         </div>

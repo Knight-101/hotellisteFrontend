@@ -30,9 +30,12 @@ const HotelList = () => {
 
   const handleclick = () => {
     const params = JSON.parse(localStorage.getItem("sorting_details"));
+    const property = JSON.parse(localStorage.getItem("sorting_param"));
+    console.log(property);
     const prices = params.price_value;
     const rating = params.rating_value;
 
+    setItems(items.sort(sortByProperty("price"))); // sortclick func
     setItems(
       baseitems.filter(
         (item) =>
@@ -44,9 +47,9 @@ const HotelList = () => {
     );
   };
 
-  const sortclick = () => {
-    setItems(items.sort(sortByProperty("price")));
-  };
+  // const sortclick = () => {
+  //   setItems(items.sort(sortByProperty("price")));
+  // };
 
   useEffect(() => {
     fetch(baseurl + location)
@@ -64,23 +67,34 @@ const HotelList = () => {
     <div className="mega-master">
       <Mainbar />
       {/* <Searchbutton /> */}
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+      <div className="accordion">
+        <Accordion
+          style={{ backgroundColor: "rgb(58, 58, 58)", color: "white" }}
         >
-          <Typography>Sort and Filter</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <div className="accordion-inside">
-            <Rangeslider />
-            <button onClick={handleclick}>refresh</button>
-            <button onClick={sortclick}>Refresh 2</button>
-            <Sorting handle_smth={() => console.log("working")} />
-          </div>
-        </AccordionDetails>
-      </Accordion>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography>Sort and Filter</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <div className="accordion-inside">
+              <Rangeslider />
+              <Sorting handle_smth={() => console.log("working")} />
+              <button
+                onClick={handleclick}
+                type="button"
+                style={{ backgroundColor: "#0d8f8f" }}
+                className="btn btn-primary refresh-btn"
+              >
+                Refresh
+              </button>
+            </div>
+          </AccordionDetails>
+        </Accordion>
+      </div>
+
       {/* <Rangeslider />
       <button onClick={handleclick}>refresh</button>
       <button onClick={sortclick}>Refresh 2</button>
@@ -93,6 +107,7 @@ const HotelList = () => {
             image={item.Image}
             rating={item.Rating}
             price={item.price}
+            discount={item.discount}
           />
         ))}
       </div>

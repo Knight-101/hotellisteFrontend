@@ -1,24 +1,32 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
-import "./sorting.css"
+import "./sorting.css";
 
 const marks = [
   {
     value: 1,
-    label: <span style={{fontSize: 12}}>Price: High to Low</span>,
+    label: (
+      <span style={{ fontSize: 12, color: "white" }}>Price: High to Low</span>
+    ),
   },
   {
     value: 2,
-    label: <span style={{fontSize: 12}}>Price: Low to High</span>,
+    label: (
+      <span style={{ fontSize: 12, color: "white" }}>Price: Low to High</span>
+    ),
   },
   {
     value: 3,
-    label: <span style={{fontSize: 12}}>Rating: Ascending</span>,
+    label: (
+      <span style={{ fontSize: 12, color: "white" }}>Rating: Ascending</span>
+    ),
   },
   {
     value: 4,
-    label: <span style={{fontSize: 12}}>Rating: Descending</span>,
+    label: (
+      <span style={{ fontSize: 12, color: "white" }}>Rating: Descending</span>
+    ),
   },
 ];
 
@@ -27,14 +35,13 @@ function valuetext(value) {
 }
 
 export default function DiscreteSlider(props) {
+  const [sortVal, setsortVal] = useState(1);
 
-    const [sortVal, setsortVal] = useState(1)
-
-    const handleChange = (event, newValue) => {
-        setsortVal(newValue);
-        console.log(sortVal);
-        localStorage.setItem("sorting_param", sortVal);
-      };
+  const handleChange = (event, newValue) => {
+    setsortVal(newValue);
+    console.log(sortVal);
+    localStorage.setItem("sorting_param", sortVal);
+  };
 
   return (
     <div className="sorting-master">
@@ -43,7 +50,6 @@ export default function DiscreteSlider(props) {
           Sort By
         </Typography>
         <Slider
-
           defaultValue={1}
           getAriaValueText={valuetext}
           aria-labelledby="discrete-slider"
@@ -51,6 +57,7 @@ export default function DiscreteSlider(props) {
           step={1}
           marks={marks}
           min={1}
+          style={{ color: "#0d8f8f" }}
           track={false}
           max={4}
         />

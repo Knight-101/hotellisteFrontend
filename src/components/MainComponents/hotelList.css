@@ -7,5 +7,18 @@
 }
 
 .mega-master{
-  padding: 10px;
+  /* padding: 10px; */
+}
+
+.refresh-btn{
+  border: none;
+  margin-top: 20px;
+}
+
+.refresh-btn:hover{
+  border: none;
+}
+
+.refresh-btn:active{
+  border: none !important;
 }

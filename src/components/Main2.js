@@ -43,7 +43,7 @@ function Main2() {
     <div>
       <NavBar />
       <HotelList />
-      <button onClick={signOut}>Log Out</button>
+      {/* <button onClick={signOut}>Log Out</button> */}
     </div>
   );
 }

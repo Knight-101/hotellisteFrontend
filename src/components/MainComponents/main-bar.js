@@ -2,7 +2,6 @@ import React, { useState, forwardRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./main-bar.css";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { setData } from "../../Redux/inputData/inputDataActions";
 import "date-fns";
@@ -10,7 +9,6 @@ import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
@@ -166,7 +164,7 @@ const Mainbar = (props) => {
         </MuiPickersUtilsProvider>
       </div>
       <div className="button-main">
-        <button onClick={handleClick} type="button" class="btn btn-primary">
+        <button onClick={handleClick} type="button" class="btn btn-primary" style={{backgroundColor: "#0d8f8f", border: "none"}}>
           Search
         </button>
       </div>

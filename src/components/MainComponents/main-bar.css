@@ -4,7 +4,7 @@
   margin: auto;
   margin-top: 1rem;
   padding: 5px 20px;
-  border-radius: 10px;
+  border-radius: 10px 10px 0 0 ;
   background-color: white;
 }
 .datebuttonwrap {
@@ -15,20 +15,20 @@
 }
 
 .location-main {
+  padding: 5px;
   grid-column-start: 1;
   grid-column-end: 3;
   text-align: center;
   display: flex;
-  border: 1px solid black;
   justify-content: center;
   align-items: center;
 }
 
 .guests-main {
+  padding: 5px;
   grid-column-start: 3;
   grid-column-end: 4;
   text-align: center;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,7 +38,6 @@
   display: flex;
   grid-column-start: 4;
   grid-column-end: 7;
-  border: 1px solid black;
   padding: 5px;
   justify-content: space-around;
   align-items: center;

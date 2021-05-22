@@ -1,22 +1,11 @@
-import React, { useEffect } from "react";
-import Header from "./HomeComponents/Header"
-import {useHistory} from "react-router-dom"
-import NavBar from "./Navbar";
+import React from "react";
+import Header from "./HomeComponents/Header";
 
 function Home() {
-  const history = useHistory()
-  // useEffect(() => {
-  //   const accessToken = localStorage.getItem('token');
-  //   if(accessToken){
-  //     history.push("/main")
-  //   }
-  // }, )
   return (
-      <div>
-          <Header />
-      </div>
-      
-    
+    <div>
+      <Header />
+    </div>
   );
 }
 
