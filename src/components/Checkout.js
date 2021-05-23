@@ -52,7 +52,7 @@ function Checkout() {
   }
 
   return (
-    <div>
+    <div className="background-checkout">
       <NavBar />
       <div id="checkout-master">
         <div className="item" id="item1">

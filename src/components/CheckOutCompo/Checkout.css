@@ -5,6 +5,11 @@
   margin: 7vw 8vw;
   color: white;
 }
+.background-checkout{
+  background-attachment: fixed;
+  background-image: url("http://www.transparenttextures.com/patterns/axiom-pattern.png");
+}
+
 body{
   background-color: black;
 }
@@ -40,25 +45,21 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-#Hname {
-  justify-self: center;
-}
 
 #stars {
-  justify-self: center;
+  justify-self: end;
 }
 
 #start {
   display: grid;
   grid-template-rows: 1fr 1fr;
   align-self: end;
-  justify-self: center;
 }
 #end {
   display: grid;
   grid-template-rows: 1fr 1fr;
   align-self: end;
-  justify-self: center;
+  justify-self: end;
 }
 
 #rules {
@@ -67,6 +68,16 @@ body{
   margin-top: 3rem;
   border: solid #0d8f8f;
   padding: 1.2rem;
+}
+
+@media (max-width: 450px){
+  #rules {
+    width: 100%;
+    margin: auto;
+    margin-top: 3rem;
+    border: solid #0d8f8f;
+    padding: 1rem;
+  }
 }
 
 /* #item2 {
