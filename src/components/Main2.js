@@ -40,7 +40,7 @@ function Main2() {
     onFailure,
   });
   return (
-    <div>
+    <div style={{backgroundColor: "#000000"}}>
       <NavBar />
       <HotelList />
       {/* <button onClick={signOut}>Log Out</button> */}

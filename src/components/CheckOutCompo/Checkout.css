@@ -5,7 +5,9 @@
   margin: 7vw 8vw;
   color: white;
 }
-
+body{
+  background-color: black;
+}
 .item {
   background-color: rgb(58,58,58);
   /* border-style: outset; */
