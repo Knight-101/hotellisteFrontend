@@ -123,7 +123,11 @@ function Login() {
           <form style={{ lineHeight: "5rem" }}>
             <h1
               className="h3 mb-3 fw-normal"
-              style={{ textAlign: "center", fontSize: "2.3rem" }}
+              style={{
+                textAlign: "center",
+                fontSize: "2.3rem",
+                color: "#0d8f8f",
+              }}
             >
               Log In
             </h1>
@@ -161,8 +165,23 @@ function Login() {
                 paddingLeft: "1rem",
               }}
             >
-              <Link to="/register">Forgot Password?</Link>
-              <Link style={{ paddingLeft: "8rem" }} to="/register">
+              <Link
+                style={{
+                  color: "#0d8f8f",
+                  textDecoration: "none",
+                }}
+                to="/register"
+              >
+                Forgot Password?
+              </Link>
+              <Link
+                style={{
+                  paddingLeft: "8rem",
+                  color: "#0d8f8f",
+                  textDecoration: "none",
+                }}
+                to="/register"
+              >
                 Create an account?
               </Link>
             </div>
@@ -170,7 +189,7 @@ function Login() {
             <button
               onClick={submitHandler}
               style={{
-                backgroundColor: "#0040ff",
+                backgroundColor: "#0d8f8f",
                 color: "white",
                 fontSize: "1.2rem",
               }}
@@ -182,7 +201,13 @@ function Login() {
           </form>
         </main>
         <hr></hr>
-        <p>OR</p>
+        <p
+          style={{
+            color: "#0d8f8f",
+          }}
+        >
+          OR
+        </p>
         <hr></hr>
         <div id="google">
           <GoogleLogin

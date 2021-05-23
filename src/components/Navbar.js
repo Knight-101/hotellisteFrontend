@@ -15,14 +15,15 @@ import { useDispatch } from "react-redux";
 import { logout } from "../Redux/logoutAction";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
+  // root: {
+  //   flexGrow: 1,
+  // },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
+    fontSize: 30,
   },
 }));
 
@@ -78,15 +79,22 @@ export default function NavBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar style={{ backgroundColor: "#0d8f8f", height: 150 }} position="static">
+      <AppBar
+        style={{
+          backgroundColor: "#0d8f8f",
+          height: 110,
+          marginBottom: "40px",
+        }}
+        position="static"
+      >
         <Toolbar>
           {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton> */}
           <img id="logo" src="Images/kachra.png" alt="logo" />
 
-          <Typography variant="h6"  className={classes.title}>
-            <span style={{color: "white"}}>Welcome {fname}!</span>
+          <Typography variant="h6" className={classes.title}>
+            <span style={{ color: "white" }}>Welcome {fname}!</span>
           </Typography>
           <div>
             <IconButton
@@ -96,7 +104,7 @@ export default function NavBar() {
               onClick={handleMenu}
               color="inherit"
             >
-              <AccountCircle />
+              <AccountCircle style={{ fontSize: 40 }} />
             </IconButton>
             <Menu
               id="menu-appbar"

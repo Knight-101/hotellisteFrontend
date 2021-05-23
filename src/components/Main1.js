@@ -12,8 +12,8 @@ function Main1() {
 
       <Carousel />
       <Mainbar />
-      <Featured/>
-      {/* <Footer /> */}
+      <Featured />
+      <Footer />
     </div>
   );
 }

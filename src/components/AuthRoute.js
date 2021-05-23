@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Redirect, useHistory } from "react-router-dom";
 
 const AuthRoute = ({ component: Component, ...rest }) => {
   const [auth, setauth] = useState(true);
+  const history = useHistory();
   axios
     .get("http://localhost:8000/main", {
       headers: { Authorization: localStorage.getItem("token") },
@@ -15,6 +16,7 @@ const AuthRoute = ({ component: Component, ...rest }) => {
       ) {
         setauth(false);
         localStorage.clear();
+        history.push("/home");
       }
     })
     .catch((error) => {
