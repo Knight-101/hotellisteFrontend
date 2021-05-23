@@ -5,6 +5,9 @@
   margin-top: 1rem;
   padding: 5px 20px;
   border-radius: 10px 10px 0 0 ;
+  border-top: 5px solid #0d8f8f;
+  border-right: 5px solid #0d8f8f;
+  border-left: 5px solid #0d8f8f;
   background-color: white;
 }
 .datebuttonwrap {

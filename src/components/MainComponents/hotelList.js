@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import Hotelres from "./hotelres";
 import Rangeslider from "./filter";
@@ -20,7 +20,7 @@ const HotelList = () => {
   const location = useSelector((state) => state.input.stateName);
   const baseurl = "http://127.0.0.1:8000/hotels/list/";
 
-  function sortByProperty(property) {
+  function sortByProperty(property) {   //sanskar
     return function (a, b) {
       if (a[property] > b[property]) return 1;
       else if (a[property] < b[property]) return -1;

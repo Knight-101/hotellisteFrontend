@@ -1,18 +1,30 @@
 .sorting-master{
     width: 100%;
-    min-width: 500px;
+    /* min-width: 500px; */
     display: flex;
     justify-content: center;
 }
 
 .sorting-child{
-    width: 50%;
+    width: 60%;
     text-align: center;
     padding: 10px;
 }
 
+.label-child{
+    font-size: 12px;
+    color: white;
+}
+
+@media (max-width: 550px){
+    .label-child{
+        font-size: 8px;
+        color: white;
+    }
+}
+
 @media (max-width: 1000px){
     .sorting-child{
-        width: 75%;
+        width: 90%;
     }
 }
