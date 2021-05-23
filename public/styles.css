@@ -4,8 +4,11 @@ body {
 }
 .authDiv {
   margin: auto;
-  width: 28vw;
-  margin-top: 20vh;
+  width: 32vw;
+  margin-top: 15vh;
+  background-color: rgb(58, 58, 58);
+  padding: 1.5rem;
+  border-radius: 10px;
 }
 #google {
   margin-top: 5vh;

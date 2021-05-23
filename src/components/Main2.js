@@ -1,23 +1,24 @@
 import React from "react";
 import { useGoogleLogout } from "react-google-login";
 import { useHistory } from "react-router-dom";
+import Footer from "./Footer";
 import HotelList from "./MainComponents/hotelList";
 import NavBar from "./Navbar";
 
 function Main2() {
   const history = useHistory();
-//   useEffect(() => {
-//     axios
-//       .get("http://localhost:8000/main", {
-//         headers: { Authorization: localStorage.getItem("token") },
-//       })
-//       .then((res) => {
-//         console.log(res.data);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   }, []);
+  //   useEffect(() => {
+  //     axios
+  //       .get("http://localhost:8000/main", {
+  //         headers: { Authorization: localStorage.getItem("token") },
+  //       })
+  //       .then((res) => {
+  //         console.log(res.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }, []);
 
   const onFailure = (e) => {
     console.log(e);
@@ -44,6 +45,7 @@ function Main2() {
       <NavBar />
       <HotelList />
       {/* <button onClick={signOut}>Log Out</button> */}
+      <Footer />
     </div>
   );
 }

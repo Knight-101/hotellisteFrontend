@@ -43,7 +43,11 @@ function Register() {
         <form style={{ lineHeight: "5rem" }}>
           <h1
             className="h3 mb-3 fw-normal"
-            style={{ textAlign: "center", fontSize: "2.3rem" }}
+            style={{
+              textAlign: "center",
+              fontSize: "2.3rem",
+              color: "#0d8f8f",
+            }}
           >
             Register
           </h1>
@@ -99,7 +103,7 @@ function Register() {
           <button
             onClick={submitHandler}
             style={{
-              backgroundColor: "#0040ff",
+              backgroundColor: "#0d8f8f",
               color: "white",
               fontSize: "1.2rem",
             }}

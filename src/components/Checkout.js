@@ -5,6 +5,7 @@ import BookButton from "./CheckOutCompo/BookButton";
 import "./CheckOutCompo/Checkout.css";
 import NavBar from "./Navbar";
 import { setBookingData } from "../Redux/bookingData/bookingDataActions";
+import Footer from "./Footer";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -151,6 +152,7 @@ function Checkout() {
           <BookButton bookFunc={Book} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
