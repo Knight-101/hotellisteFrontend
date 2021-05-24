@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import Booking from './Booking';
 
-const Hoteldiv = ({ name, location, image, rating, price, discount }) => {
+const Hoteldiv = ({ name, location, image, rating, price, discount, lat, long }) => {
   const guests = useSelector((state) => state.input.guests);
   const startDate = useSelector((state) => state.input.startDate);
   const endDate = useSelector((state) => state.input.endDate);
@@ -19,11 +19,20 @@ const Hoteldiv = ({ name, location, image, rating, price, discount }) => {
       hotelStars: stars,
       hotelLocation: location,
       hotelDiscount: discount,
+      latitude: lat,
+      longitude: long,
       hotelGuests: guests,
       hotelStartDate: startDate,
       hotelEndDate: endDate,
     });
     localStorage.setItem("HotelData", hotelData);
+
+    const locationData = JSON.stringify({
+      latitude: lat,
+      longitude: long,
+    });
+
+    localStorage.setItem("LocationData", locationData);
     history.push("./checkout");
   };
 
