@@ -1,6 +1,6 @@
 import React from "react";
 import Mainbar from "./MainComponents/main-bar";
-import NavBar from "./Navbar";
+import NavBar from "./nice_navbar";
 import Featured from "./MainComponents/featured";
 import Carousel from "./MainComponents/Carousel";
 import Footer from "./Footer";
@@ -8,7 +8,7 @@ import Footer from "./Footer";
 function Main1() {
   return (
     <div>
-      <NavBar style={{ marginTop: "-2vw" }} />
+      <NavBar/>
 
       <Carousel />
       <Mainbar />

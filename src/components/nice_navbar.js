@@ -12,8 +12,6 @@ import axios from "axios";
 import BookingHistory from "./BookingHistory";
 import { useDispatch } from "react-redux";
 import { logout } from "../Redux/logoutAction";
-import imgsrc from "../new_logo_full.png"
-import "./MainComponents/hotelList.css"
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -31,6 +29,8 @@ export default function NavBar() {
   const [fname, setFname] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  // const userData = JSON.parse(localStorage.getItem("UserData"))
+  // const fName = userData.userFname
   const clientId =
     "658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com";
   const history = useHistory();
@@ -78,13 +78,12 @@ export default function NavBar() {
       <AppBar
         style={{
           backgroundColor: "#0d8f8f00",
-          // height: 0,
+          height: 0,
           marginBottom: "0px",
         }}
         position="static"
       >
-        <Toolbar style={{paddingTop: 20}}>
-          <img src={imgsrc} className="navbar-hos-logo"></img>
+        <Toolbar>
           <div style={{position: "absolute",top: 10, right: 10, zIndex: 999}}>
             <IconButton
               aria-label="account of current user"
