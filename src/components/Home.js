@@ -5,6 +5,7 @@ import * as THREE from "three";
 import { StyledLink } from "./StyledCompo";
 import Footer from "./Footer";
 
+
 const Home = () => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);

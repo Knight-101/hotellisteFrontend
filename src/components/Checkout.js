@@ -6,10 +6,13 @@ import "./CheckOutCompo/Checkout.css";
 import NavBar from "./Navbar";
 import { setBookingData } from "../Redux/bookingData/bookingDataActions";
 import Footer from "./Footer";
+import Mapbox from "./Mapres/mapbox";
 
 function Checkout() {
   const dispatch = useDispatch();
   const HotelData = JSON.parse(localStorage.getItem("HotelData"));
+  const LocationData = JSON.parse(localStorage.getItem("LocationData"));
+  console.log(LocationData);
   const startDate = GetFormattedDate(HotelData.hotelStartDate);
   const endDate = GetFormattedDate(HotelData.hotelEndDate);
   const priceBeforetax = parseInt(
@@ -72,6 +75,7 @@ function Checkout() {
                 </div>
                 <div id="stars">
                   <h2>{HotelData.hotelStars}</h2>
+                  <h2>{LocationData.latitude}</h2>
                 </div>
                 <div id="start">
                   <div>
@@ -151,6 +155,24 @@ function Checkout() {
         <div id="item3">
           <BookButton bookFunc={Book} />
         </div>
+      </div>
+      <div style={{ color: "#0d8f8f", textAlign: "center", fontSize: "50px" }}>
+        stuff to do nearby
+      </div>
+      <div className="map-wrap">
+        {/* <WrappedMap
+          latitude={LocationData.longitude}
+          longitude={LocationData.latitude}
+          name={HotelData.hotelName}
+          location={HotelData.hotelLocation}
+        ></WrappedMap> */}
+        <Mapbox
+          latitude={LocationData.longitude}
+          longitude={LocationData.latitude}
+          name={HotelData.hotelName}
+          location={HotelData.hotelLocation}
+          image={HotelData.hotelImg}
+        ></Mapbox>
       </div>
       <Footer />
     </div>

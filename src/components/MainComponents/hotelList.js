@@ -13,6 +13,7 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { it } from "date-fns/locale";
 
 const HotelList = () => {
   const [items, setItems] = useState([]);
@@ -108,6 +109,8 @@ const HotelList = () => {
             rating={item.Rating}
             price={item.price}
             discount={item.discount}
+            lat={item.location.latitude}
+            long={item.location.longitude}
           />
         ))}
       </div>
