@@ -16,7 +16,7 @@ const AuthRoute = ({ component: Component, ...rest }) => {
       ) {
         setauth(false);
         localStorage.clear();
-        history.push("/");
+        history.push("/home");
       }
     })
     .catch((error) => {

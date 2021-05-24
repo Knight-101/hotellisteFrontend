@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../nice_navbar";
 import "./Carousel.css";
 // import Booking from './Booking';
 
@@ -29,16 +28,11 @@ const Carousel = () => {
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 <span className="visually-hidden">Next</span>
             </button> */}
-      {/* <img
+      <img
         src="https://www.phdmedia.com/china/wp-content/uploads/sites/32/2017/08/Banner-for-TWiD-4-e1499162744863.jpg"
         className="d-block w-100"
         alt="..."
-      /> */}
-      <div className="hotelliste-logo-mas">
-        <div className="img-bkdrp">
-          <img src="Images/new_logo_full.png" alt="logo" className="new-logo"></img>
-        </div>
-      </div>
+      />
     </div>
   );
 };

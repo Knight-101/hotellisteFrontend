@@ -2,7 +2,6 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import BookingTable from "./MainComponents/BookingTable";
-import { StyledLink } from "./StyledCompo";
 
 function getModalStyle() {
   const top = 50;
@@ -18,9 +17,10 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: "absolute",
-    width: "90%",
-    maxWidth: 1000,
+    width: 800,
     backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
 }));
@@ -47,9 +47,9 @@ export default function BookingHistory() {
         <BookingTable />
       </p>
       <div style={{ textAlign: "right" }} onClick={handleClose}>
-        <StyledLink>
+        <button class="btn btn-primary" type="button">
           Close
-        </StyledLink>
+        </button>
       </div>
     </div>
   );

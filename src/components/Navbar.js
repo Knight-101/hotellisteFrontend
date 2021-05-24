@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -12,10 +13,11 @@ import axios from "axios";
 import BookingHistory from "./BookingHistory";
 import { useDispatch } from "react-redux";
 import { logout } from "../Redux/logoutAction";
-import imgsrc from "../new_logo_full.png"
-import "./MainComponents/hotelList.css"
 
 const useStyles = makeStyles((theme) => ({
+  // root: {
+  //   flexGrow: 1,
+  // },
   menuButton: {
     marginRight: theme.spacing(2),
   },
@@ -31,6 +33,8 @@ export default function NavBar() {
   const [fname, setFname] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  // const userData = JSON.parse(localStorage.getItem("UserData"))
+  // const fName = userData.userFname
   const clientId =
     "658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com";
   const history = useHistory();
@@ -77,15 +81,22 @@ export default function NavBar() {
     <div className={classes.root}>
       <AppBar
         style={{
-          backgroundColor: "#0d8f8f00",
-          // height: 0,
-          marginBottom: "0px",
+          backgroundColor: "#0d8f8f",
+          height: 110,
+          marginBottom: "40px",
         }}
         position="static"
       >
-        <Toolbar style={{paddingTop: 20}}>
-          <img src={imgsrc} className="navbar-hos-logo"></img>
-          <div style={{position: "absolute",top: 10, right: 10, zIndex: 999}}>
+        <Toolbar>
+          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton> */}
+          <img id="logo" src="Images/kachra.png" alt="logo" />
+
+          <Typography variant="h6" className={classes.title}>
+            <span style={{ color: "white" }}>Welcome {fname}!</span>
+          </Typography>
+          <div>
             <IconButton
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -93,7 +104,7 @@ export default function NavBar() {
               onClick={handleMenu}
               color="inherit"
             >
-              <AccountCircle style={{ fontSize: 50 }} className="account-circle" />
+              <AccountCircle style={{ fontSize: 40 }} />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -110,10 +121,6 @@ export default function NavBar() {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>
-                Welcome, {fname}
-              </MenuItem>
-              <hr></hr>
               <MenuItem onClick={handleClose}>
                 <BookingHistory />
               </MenuItem>

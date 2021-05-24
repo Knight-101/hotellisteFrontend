@@ -15,7 +15,7 @@ function LogOut() {
     if (isTokenExists) {
       localStorage.removeItem("token");
       localStorage.removeItem("persist:root");
-      history.push("/");
+      history.push("/login");
     }
   };
 

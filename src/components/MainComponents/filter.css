@@ -19,14 +19,3 @@
 #range-slider{
     text-align: center;
 }
-
-.star-label-child{
-    color: white;
-    font-size: 12px;
-}
-
-@media (max-width: 550px){
-    .star-label-child{
-        font-size: 8px;
-    }
-}
