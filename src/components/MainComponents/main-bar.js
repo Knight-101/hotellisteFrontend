@@ -106,116 +106,118 @@ const Mainbar = (props) => {
 
   return (
     <div className="master">
-      <div class="location-main" style={{ display: "inline-block" }}>
-        <label htmlFor="location" class="form-label">
-          Location&nbsp;
-        </label>
-        <select
-          onChange={handleChange}
-          name="location"
-          id="stateName"
-          class="form-select"
-          aria-label="State select"
-        >
-          <option selected>
-            {inputData.stateName ? inputData.stateName : "Select Location"}
-          </option>
-          <option value="Andhra Pradesh">Andhra Pradesh</option>
-          <option value="Assam">Assam</option>
-          <option value="Chhattisgarh">Chhattisgarh</option>
-          <option value="Gujarat">Gujarat</option>
-          <option value="Haryana">Haryana</option>
-          <option value="Jharkhand">Jharkhand</option>
-          <option value="Karnataka">Karnataka</option>
-          <option value="Kerala">Kerala</option>
-          <option value="Madhya Pradesh">Madhya Pradesh</option>
-          <option value="Maharashtra">Maharashtra</option>
-          <option value="Odisha">Odisha</option>
-          <option value="Punjab">Punjab</option>
-          <option value="Rajasthan">Rajasthan</option>
-          <option value="Tamil Nadu">Tamil Nadu</option>
-          <option value="Telangana">Telangana</option>
-          <option value="Uttar Pradesh">Uttar Pradesh</option>
-          <option value="Uttarakhand">Uttarakhand</option>
-          <option value="West Bengal">West Bengal</option>
-          <option value="">All</option>
-        </select>
-      </div>
-      <div class="guests-main" style={{ display: "inline-block" }}>
-        <label htmlFor="guests" class="form-label">
-          Guests
-        </label>
-        <input
-          onChange={handleChange}
-          class="form-control"
-          id="guests"
-          placeholder=""
-          type="number"
-          value={inputData.guests}
-          min={0}
-        />
-      </div>
+      <form>
+        <div class="location-main" style={{ display: "inline-block" }}>
+          <label htmlFor="location" class="form-label">
+            Location&nbsp;
+          </label>
+          <select
+            onChange={handleChange}
+            name="location"
+            id="stateName"
+            class="form-select"
+            aria-label="State select"
+          >
+            <option selected>
+              {inputData.stateName ? inputData.stateName : "Select Location"}
+            </option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="">All</option>
+          </select>
+        </div>
+        <div class="guests-main" style={{ display: "inline-block" }}>
+          <label htmlFor="guests" class="form-label">
+            Guests
+          </label>
+          <input
+            onChange={handleChange}
+            class="form-control"
+            id="guests"
+            placeholder=""
+            type="number"
+            value={inputData.guests}
+            min={0}
+          />
+        </div>
 
-      <div className="date-master">
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <Grid container justify="space-around">
-            <ThemeProvider theme={defaultMaterialTheme}>
-              <KeyboardDatePicker
-                margin="normal"
-                id="date-picker-dialog"
-                label="Date picker dialog"
-                format="dd/MM/yyyy"
-                value={selectedStartDate}
-                minDate={new Date()}
-                onChange={(date) => {
-                  setSelectedStartDate(date);
-                  console.log(date);
-                  setInputData((prevData) => {
-                    return {
-                      ...prevData,
-                      startDate: Date.parse(date),
-                    };
-                  });
-                }}
-                KeyboardButtonProps={{
-                  "aria-label": "change date",
-                }}
-              />
+        <div className="date-master">
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <Grid container justify="space-around">
+              <ThemeProvider theme={defaultMaterialTheme}>
+                <KeyboardDatePicker
+                  margin="normal"
+                  id="date-picker-dialog"
+                  label="Date picker dialog"
+                  format="dd/MM/yyyy"
+                  value={selectedStartDate}
+                  minDate={new Date()}
+                  onChange={(date) => {
+                    setSelectedStartDate(date);
+                    console.log(date);
+                    setInputData((prevData) => {
+                      return {
+                        ...prevData,
+                        startDate: Date.parse(date),
+                      };
+                    });
+                  }}
+                  KeyboardButtonProps={{
+                    "aria-label": "change date",
+                  }}
+                />
 
-              <KeyboardDatePicker
-                margin="normal"
-                id="date-picker-dialog"
-                label="Date picker dialog"
-                format="dd/MM/yyyy"
-                value={selectedEndDate ? selectedEndDate : selectedStartDate}
-                minDate={selectedStartDate}
-                onChange={(date) => {
-                  setSelectedEndDate(date);
-                  setInputData((prevData) => {
-                    return {
-                      ...prevData,
-                      endDate: Date.parse(date),
-                    };
-                  });
-                }}
-                KeyboardButtonProps={{
-                  "aria-label": "change date",
-                }}
-              />
-            </ThemeProvider>
-          </Grid>
-        </MuiPickersUtilsProvider>
-      </div>
-      <div className="button-main">
-        <button
-          onClick={handleClick}
-          type="button"
-          class="btn btn-primary"
-          style={{ backgroundColor: "#0d8f8f", border: "none" }}
-        >
-          Search
-        </button>
-      </div>
+                <KeyboardDatePicker
+                  margin="normal"
+                  id="date-picker-dialog"
+                  label="Date picker dialog"
+                  format="dd/MM/yyyy"
+                  value={selectedEndDate}
+                  minDate={selectedStartDate}
+                  onChange={(date) => {
+                    setSelectedEndDate(date);
+                    setInputData((prevData) => {
+                      return {
+                        ...prevData,
+                        endDate: Date.parse(date),
+                      };
+                    });
+                  }}
+                  KeyboardButtonProps={{
+                    "aria-label": "change date",
+                  }}
+                />
+              </ThemeProvider>
+            </Grid>
+          </MuiPickersUtilsProvider>
+        </div>
+        <div className="button-main">
+          <button
+            onClick={handleClick}
+            type="button"
+            class="btn btn-primary"
+            style={{ backgroundColor: "#0d8f8f", border: "none" }}
+          >
+            Search
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

@@ -6,27 +6,23 @@ import "./sorting.css";
 const marks = [
   {
     value: 1,
-    label: (
-      <span className="label-child">Price: Ascending</span>
-    ),
+    label: <span className="label-child">Price: Ascending</span>,
   },
   {
     value: 2,
     label: (
-      <span className="label-child" id="testingtesting">Price: Descending</span>
+      <span className="label-child" id="testingtesting">
+        Price: Descending
+      </span>
     ),
   },
   {
     value: 3,
-    label: (
-      <span className="label-child">Rating: Ascending</span>
-    ),
+    label: <span className="label-child">Rating: Ascending</span>,
   },
   {
     value: 4,
-    label: (
-      <span className="label-child">Rating: Descending</span>
-    ),
+    label: <span className="label-child">Rating: Descending</span>,
   },
 ];
 
@@ -35,12 +31,8 @@ function valuetext(value) {
 }
 
 export default function DiscreteSlider(props) {
-  const [sortVal, setsortVal] = useState(1);
-
   const handleChange = (event, newValue) => {
-    setsortVal(newValue);
-    console.log(sortVal);
-    localStorage.setItem("sorting_param", sortVal);
+    localStorage.setItem("sorting_param", newValue);
   };
 
   return (

@@ -47,9 +47,7 @@ export default function BookingHistory() {
         <BookingTable />
       </p>
       <div style={{ textAlign: "right" }} onClick={handleClose}>
-        <StyledLink>
-          Close
-        </StyledLink>
+        <StyledLink to="/main">Close</StyledLink>
       </div>
     </div>
   );

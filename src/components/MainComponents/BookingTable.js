@@ -13,10 +13,9 @@ const useStyles = makeStyles({
   table: {
     minWidth: 300,
   },
-  rooting:{
+  rooting: {
     height: 300,
-    
-  }
+  },
 });
 
 function createData(HotelName, HotelLocation, CheckIn, CheckOut) {

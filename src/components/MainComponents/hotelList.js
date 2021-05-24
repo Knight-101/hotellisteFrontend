@@ -20,22 +20,47 @@ const HotelList = () => {
   const location = useSelector((state) => state.input.stateName);
   const baseurl = "http://127.0.0.1:8000/hotels/list/";
 
-  function sortByProperty(property) {   //sanskar
+  function lowToHigh(property) {
+    //sanskar
     return function (a, b) {
       if (a[property] > b[property]) return 1;
       else if (a[property] < b[property]) return -1;
       return 0;
     };
   }
+  function highToLow(property) {
+    //sanskar
+    return function (a, b) {
+      if (a[property] < b[property]) return 1;
+      else if (a[property] > b[property]) return -1;
+      return 0;
+    };
+  }
 
   const handleclick = () => {
     const params = JSON.parse(localStorage.getItem("sorting_details"));
-    const property = JSON.parse(localStorage.getItem("sorting_param"));
-    console.log(property);
+    const sortValue = JSON.parse(localStorage.getItem("sorting_param"));
     const prices = params.price_value;
     const rating = params.rating_value;
 
-    setItems(items.sort(sortByProperty("price"))); // sortclick func
+    // setItems(items.sort(sortByProperty("price"))); // sortclick func
+    switch (sortValue) {
+      case 1:
+        setItems(baseitems.sort(lowToHigh("price")));
+        break;
+      case 2:
+        setItems(baseitems.sort(highToLow("price")));
+        break;
+      case 3:
+        setItems(baseitems.sort(lowToHigh("Rating")));
+        break;
+      case 4:
+        setItems(baseitems.sort(highToLow("Rating")));
+        break;
+
+      default:
+        break;
+    }
     setItems(
       baseitems.filter(
         (item) =>
@@ -88,7 +113,7 @@ const HotelList = () => {
                 style={{ backgroundColor: "#0d8f8f" }}
                 className="btn btn-primary refresh-btn"
               >
-                Refresh
+                Sort and Filter
               </button>
             </div>
           </AccordionDetails>

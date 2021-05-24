@@ -46,7 +46,7 @@ const Hoteldiv = ({ name, location, image, rating, price, discount }) => {
           {location}
         </div>
         <div id="price-grid" className="grid-child">
-          Price: ₹ <s>{price}</s>&nbsp;{parseInt(price * (1 - (discount/100)))}
+          Price: ₹<s>{parseInt(price * (1 + discount / 100))}</s> &nbsp;{price}
         </div>
         <div id="button-grid" className="grid-child">
           <button
