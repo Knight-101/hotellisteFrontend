@@ -7,25 +7,25 @@ const marks = [
   {
     value: 1,
     label: (
-      <span className="label-child">Price: Ascending</span>
+      <span style={{ fontSize: 12, color: "white" }}>Price: High to Low</span>
     ),
   },
   {
     value: 2,
     label: (
-      <span className="label-child" id="testingtesting">Price: Descending</span>
+      <span style={{ fontSize: 12, color: "white" }}>Price: Low to High</span>
     ),
   },
   {
     value: 3,
     label: (
-      <span className="label-child">Rating: Ascending</span>
+      <span style={{ fontSize: 12, color: "white" }}>Rating: Ascending</span>
     ),
   },
   {
     value: 4,
     label: (
-      <span className="label-child">Rating: Descending</span>
+      <span style={{ fontSize: 12, color: "white" }}>Rating: Descending</span>
     ),
   },
 ];

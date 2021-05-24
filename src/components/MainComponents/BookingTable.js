@@ -13,10 +13,6 @@ const useStyles = makeStyles({
   table: {
     minWidth: 300,
   },
-  rooting:{
-    height: 300,
-    
-  }
 });
 
 function createData(HotelName, HotelLocation, CheckIn, CheckOut) {
@@ -39,7 +35,7 @@ export default function BookingTable() {
   }
 
   return (
-    <TableContainer component={Paper} className={classes.rooting}>
+    <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>

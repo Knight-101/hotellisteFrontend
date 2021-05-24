@@ -8,7 +8,6 @@ import "./filter.css";
 const useStyles = makeStyles({
   root: {
     width: 400,
-    minWidth: 250,
     paddingLeft: 30,
     paddingRight: 30,
   },
@@ -60,23 +59,23 @@ const RangeSlider = (props) => {
   const starmarks = [
     {
       value: 1,
-      label: <span className="star-label-child">★☆☆☆☆</span>,
+      label: <span style={{color: "white"}}>★☆☆☆☆</span>,
     },
     {
       value: 2,
-      label: <span className="star-label-child">★★☆☆☆</span>,
+      label: <span style={{color: "white"}}>★★☆☆☆</span>,
     },
     {
       value: 3,
-      label: <span className="star-label-child">★★★☆☆</span>,
+      label: <span style={{color: "white"}}>★★★☆☆</span>,
     },
     {
       value: 4,
-      label: <span className="star-label-child">★★★★☆</span>,
+      label: <span style={{color: "white"}}>★★★★☆</span>,
     },
     {
       value: 5,
-      label: <span className="star-label-child">★★★★★</span>,
+      label: <span style={{color: "white"}}>★★★★★</span>,
     },
   ];
 

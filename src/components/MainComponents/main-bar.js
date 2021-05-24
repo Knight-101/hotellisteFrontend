@@ -6,9 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import { setData } from "../../Redux/inputData/inputDataActions";
 import "date-fns";
 import Grid from "@material-ui/core/Grid";
-import { ThemeProvider } from "@material-ui/styles";
-import lightBlue from "@material-ui/core/colors/lightBlue";
-import { createMuiTheme } from "@material-ui/core";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
@@ -29,43 +26,6 @@ const Mainbar = (props) => {
     guests: guests,
     startDate: selectedStartDate,
     endDate: selectedEndDate,
-  });
-
-  const materialTheme = createMuiTheme({
-    overrides: {
-      MuiPickersToolbar: {
-        toolbar: {
-          backgroundColor: "#0d8f8f",
-        },
-      },
-      MuiPickersCalendarHeader: {
-        switchHeader: {
-          // backgroundColor: lightBlue.A200,
-          // color: "white",
-        },
-      },
-      MuiPickersDay: {
-        daySelected: {
-          backgroundColor: "#0d8f8f",
-        },
-        current: {
-          color: "#0d8f8f",
-        },
-      },
-      MuiPickersModal: {
-        dialogAction: {
-          color: "#0d8f8f",
-        },
-      },
-    },
-  });
-
-  const defaultMaterialTheme = createMuiTheme({
-    palette: {
-      primary: {
-        main: "#0d8f8f",
-      },
-    },
   });
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
@@ -159,60 +119,52 @@ const Mainbar = (props) => {
       <div className="date-master">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <Grid container justify="space-around">
-            <ThemeProvider theme={defaultMaterialTheme}>
-              <KeyboardDatePicker
-                margin="normal"
-                id="date-picker-dialog"
-                label="Date picker dialog"
-                format="dd/MM/yyyy"
-                value={selectedStartDate}
-                minDate={new Date()}
-                onChange={(date) => {
-                  setSelectedStartDate(date);
-                  console.log(date);
-                  setInputData((prevData) => {
-                    return {
-                      ...prevData,
-                      startDate: Date.parse(date),
-                    };
-                  });
-                }}
-                KeyboardButtonProps={{
-                  "aria-label": "change date",
-                }}
-              />
-
-              <KeyboardDatePicker
-                margin="normal"
-                id="date-picker-dialog"
-                label="Date picker dialog"
-                format="dd/MM/yyyy"
-                value={selectedEndDate ? selectedEndDate : selectedStartDate}
-                minDate={selectedStartDate}
-                onChange={(date) => {
-                  setSelectedEndDate(date);
-                  setInputData((prevData) => {
-                    return {
-                      ...prevData,
-                      endDate: Date.parse(date),
-                    };
-                  });
-                }}
-                KeyboardButtonProps={{
-                  "aria-label": "change date",
-                }}
-              />
-            </ThemeProvider>
+            <KeyboardDatePicker
+              margin="normal"
+              id="date-picker-dialog"
+              label="Date picker dialog"
+              format="dd/MM/yyyy"
+              value={selectedStartDate}
+              minDate={new Date()}
+              onChange={(date) => {
+                setSelectedStartDate(date);
+                console.log(date);
+                setInputData((prevData) => {
+                  return {
+                    ...prevData,
+                    startDate: Date.parse(date),
+                  };
+                });
+              }}
+              KeyboardButtonProps={{
+                "aria-label": "change date",
+              }}
+            />
+            <KeyboardDatePicker
+              margin="normal"
+              id="date-picker-dialog"
+              label="Date picker dialog"
+              format="dd/MM/yyyy"
+              value={selectedEndDate ? selectedEndDate : selectedStartDate}
+              minDate={selectedStartDate}
+              onChange={(date) => {
+                setSelectedEndDate(date);
+                setInputData((prevData) => {
+                  return {
+                    ...prevData,
+                    endDate: Date.parse(date),
+                  };
+                });
+              }}
+              KeyboardButtonProps={{
+                "aria-label": "change date",
+              }}
+            />
           </Grid>
         </MuiPickersUtilsProvider>
       </div>
       <div className="button-main">
-        <button
-          onClick={handleClick}
-          type="button"
-          class="btn btn-primary"
-          style={{ backgroundColor: "#0d8f8f", border: "none" }}
-        >
+        <button onClick={handleClick} type="button" class="btn btn-primary" style={{backgroundColor: "#0d8f8f", border: "none"}}>
           Search
         </button>
       </div>
