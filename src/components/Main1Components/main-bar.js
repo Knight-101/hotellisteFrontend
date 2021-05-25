@@ -120,6 +120,7 @@ const Mainbar = (props) => {
             id="stateName"
             className="form-select"
             aria-label="State select"
+            defaultValue=""
           >
             {inputData.stateName ? (
               <option selected value={inputData.stateName}>
@@ -221,7 +222,7 @@ const Mainbar = (props) => {
           <button
             onClick={handleClick}
             type="button"
-            class="btn btn-primary"
+            className="btn btn-primary"
             style={{ backgroundColor: "#0d8f8f", border: "none" }}
           >
             Search

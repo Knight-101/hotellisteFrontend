@@ -84,7 +84,7 @@ export default function NavBar() {
         position="static"
       >
         <Toolbar style={{ paddingTop: 20 }}>
-          <img src={imgsrc} className="navbar-hos-logo"></img>
+          <img src={imgsrc} className="navbar-hos-logo" alt="logo"></img>
           <div
             style={{ position: "absolute", top: 10, right: 10, zIndex: 999 }}
           >

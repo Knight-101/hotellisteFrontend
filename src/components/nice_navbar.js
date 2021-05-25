@@ -29,8 +29,6 @@ export default function NavBar() {
   const [fname, setFname] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  // const userData = JSON.parse(localStorage.getItem("UserData"))
-  // const fName = userData.userFname
   const clientId =
     "658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com";
   const history = useHistory();

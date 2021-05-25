@@ -4,7 +4,16 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 // import Booking from './Booking';
 
-const Hoteldiv = ({ name, location, image, rating, price, discount, lat, long }) => {
+const Hoteldiv = ({
+  name,
+  location,
+  image,
+  rating,
+  price,
+  discount,
+  lat,
+  long,
+}) => {
   const guests = useSelector((state) => state.input.guests);
   const startDate = useSelector((state) => state.input.startDate);
   const endDate = useSelector((state) => state.input.endDate);
@@ -55,7 +64,12 @@ const Hoteldiv = ({ name, location, image, rating, price, discount, lat, long })
           {location}
         </div>
         <div id="price-grid" className="grid-child">
-          Price: ₹<s>{parseInt(price * (1 + discount / 100))}</s> &nbsp;{price}
+          <div className="price-alignment">
+            <div id="og-price">
+              <s>₹{parseInt(price * (1 + discount / 100))}</s>
+            </div>
+            <div id="disc-price">₹{price}</div>
+          </div>
         </div>
         <div id="button-grid" className="grid-child">
           <button

@@ -11,7 +11,8 @@
     grid-column-end: 3;
     width: 100px;
     height: 100px;
-    border: 2px solid #0d8f8f;
+    margin-right: 10px;
+
 }
 
 .popup-name{
@@ -30,4 +31,6 @@
     grid-column-end: 6;
     display: flex;
     align-items: center;
+    max-width: 200px;
+    font-size: 10px;
 }

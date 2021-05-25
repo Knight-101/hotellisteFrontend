@@ -43,7 +43,6 @@ function Checkout() {
       )
       .then((res) => {
         if (res.data.ok) {
-          console.log("Booked");
           dispatch(setBookingData(booking));
         } else {
           console.log("Booking Failed");
@@ -68,29 +67,26 @@ function Checkout() {
               </div>
               <div id="contentsText">
                 <div id="Hname">
-                  <u>
-                    <h2>{HotelData.hotelName}</h2>
-                  </u>
+                  <h2 style={{ fontWeight: 800 }}>{HotelData.hotelName}</h2>
                   <p>{HotelData.hotelLocation}</p>
                 </div>
                 <div id="stars">
                   <h2>{HotelData.hotelStars}</h2>
-                  <h2>{LocationData.latitude}</h2>
                 </div>
                 <div id="start">
                   <div>
-                    <h3>Check In</h3>
+                    <h4>Check In</h4>
                   </div>
                   <div>
-                    <h3>{startDate}</h3>
+                    <h4>{startDate}</h4>
                   </div>
                 </div>
                 <div id="end">
                   <div>
-                    <h3>Check Out</h3>
+                    <h4>Check Out</h4>
                   </div>
                   <div>
-                    <h3>{endDate}</h3>
+                    <h4>{endDate}</h4>
                   </div>
                 </div>
               </div>
@@ -141,31 +137,22 @@ function Checkout() {
                 <h5>Total Amount</h5>
               </div>
               <div>
-                <span>&#8377;</span>
-                {priceBeforetax + priceTax}
+                <h4>
+                  <span>&#8377;</span>
+                  {priceBeforetax + priceTax}
+                </h4>
               </div>
             </div>
           </div>
         </div>
-        {/* <div className="item d-grid" id="item3">
-          <button onClick={Book} class="btn btn-primary" type="button">
-            BOOK NOW
-          </button>
-        </div> */}
         <div id="item3">
           <BookButton bookFunc={Book} />
         </div>
       </div>
-      <div style={{ color: "#0d8f8f", textAlign: "center", fontSize: "50px" }}>
-        stuff to do nearby
+      <div id="maphead">
+        Discover more
       </div>
       <div className="map-wrap">
-        {/* <WrappedMap
-          latitude={LocationData.longitude}
-          longitude={LocationData.latitude}
-          name={HotelData.hotelName}
-          location={HotelData.hotelLocation}
-        ></WrappedMap> */}
         <Mapbox
           latitude={LocationData.longitude}
           longitude={LocationData.latitude}

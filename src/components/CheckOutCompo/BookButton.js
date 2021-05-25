@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
 export default function BookButton(props) {
   const history = useHistory();
   const classes = useStyles();
-  // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
 
@@ -63,7 +62,7 @@ export default function BookButton(props) {
       <div onClick={handleOpen} className="item d-grid" id="item3">
         <button
           onClick={props.bookFunc}
-          class="btn btn-primary book-button-checkout"
+          className="btn btn-primary book-button-checkout"
           type="button"
         >
           BOOK NOW

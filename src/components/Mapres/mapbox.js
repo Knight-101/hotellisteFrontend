@@ -23,16 +23,7 @@ const Mapbox = (props) => {
         mapStyle="mapbox://styles/krishanu-xc/ckp2ub5rt0wd817phwu31kb20"
         onViewportChange={(viewport) => setViewport(viewport)}
       >
-        <Marker
-          latitude={props.latitude}
-          longitude={props.longitude}
-          //   onClick={() => {
-          //     setHotel("hello");
-          //   }}
-          //   icon={{
-          //     url: "/Images/new_logo.png",
-          //   }}
-        >
+        <Marker latitude={props.latitude} longitude={props.longitude}>
           <button
             style={{ background: "none", border: "none", cursor: "pointer" }}
             onClick={() => {
@@ -41,6 +32,7 @@ const Mapbox = (props) => {
           >
             <img
               src="/Images/logo_ping.png"
+              alt=""
               style={{
                 height: 60,
                 width: 60,
@@ -58,7 +50,13 @@ const Mapbox = (props) => {
             }}
           >
             <div className="popup-master">
-              <div className="popup-image"><img src={props.image} style={{width: "100%", height: "100%", objectFit: "cover"}}></img></div>
+              <div className="popup-image">
+                <img
+                  src={props.image}
+                  alt="Hotel"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                ></img>
+              </div>
               <div className="popup-name">{props.name}</div>
               <div className="popup-location">{props.location}</div>
             </div>

@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import "./HomeComponents/home.css";
 import FOG from "vanta/dist/vanta.fog.min";
 import * as THREE from "three";
-import { StyledLink } from "./StyledCompo";
 import Footer from "./Footer";
 import Fancybutton from "./fancy_button";
 import { useHistory } from "react-router";
