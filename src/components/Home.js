@@ -4,11 +4,14 @@ import FOG from "vanta/dist/vanta.fog.min";
 import * as THREE from "three";
 import { StyledLink } from "./StyledCompo";
 import Footer from "./Footer";
+import Fancybutton from "./fancy_button";
+import { useHistory } from "react-router";
 
 
 const Home = () => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);
+  const history = useHistory()
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
@@ -43,7 +46,7 @@ const Home = () => {
               Hospitality is making your guests feel like home, even if you wish
               they were.
             </div>
-            <StyledLink to="/login">Log In</StyledLink>
+            <Fancybutton onClick={() => history.push("/login")} inside="Get started..."></Fancybutton>
           </div>
         </div>
       </div>

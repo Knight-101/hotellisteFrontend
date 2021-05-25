@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import Hotelres from "./hotelres";
 import Rangeslider from "./filter";
-// import Searchbutton from "./search-button";
 import Mainbar from "./main-bar";
 import "./hotelList.css";
 import Sorting from "./sorting";
@@ -13,7 +12,6 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { it } from "date-fns/locale";
 
 const HotelList = () => {
   const [items, setItems] = useState([]);
