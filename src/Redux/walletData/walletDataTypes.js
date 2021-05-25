@@ -1,0 +1,2 @@
+export const UPDATE_DATA = "UPADATE_WALLET_DATA";
+export const USER_LOGOUT = "USER_LOGOUT";

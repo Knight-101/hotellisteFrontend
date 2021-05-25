@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./main-bar.css";
@@ -6,8 +6,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import { setData } from "../../Redux/inputData/inputDataActions";
 import "date-fns";
 import Grid from "@material-ui/core/Grid";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+import { makeStyles } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import lightBlue from "@material-ui/core/colors/lightBlue";
 import { createMuiTheme } from "@material-ui/core";
 import DateFnsUtils from "@date-io/date-fns";
 import {
@@ -15,9 +17,24 @@ import {
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
+
 const Mainbar = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const [valid, setvalid] = useState(true);
+  const [open, setOpen] = useState(true);
   const location = useSelector((state) => state.input.stateName);
   const guests = useSelector((state) => state.input.guests);
   const startDate = useSelector((state) => state.input.startDate);
@@ -31,34 +48,16 @@ const Mainbar = (props) => {
     endDate: selectedEndDate,
   });
 
-  const materialTheme = createMuiTheme({
-    overrides: {
-      MuiPickersToolbar: {
-        toolbar: {
-          backgroundColor: "#0d8f8f",
-        },
-      },
-      MuiPickersCalendarHeader: {
-        switchHeader: {
-          // backgroundColor: lightBlue.A200,
-          // color: "white",
-        },
-      },
-      MuiPickersDay: {
-        daySelected: {
-          backgroundColor: "#0d8f8f",
-        },
-        current: {
-          color: "#0d8f8f",
-        },
-      },
-      MuiPickersModal: {
-        dialogAction: {
-          color: "#0d8f8f",
-        },
-      },
-    },
-  });
+  //snackbar Functions
+  const classes = useStyles();
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const defaultMaterialTheme = createMuiTheme({
     palette: {
@@ -67,19 +66,6 @@ const Mainbar = (props) => {
       },
     },
   });
-
-  const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => (
-    <div className="datebuttonwrap">
-      <button
-        className="btn btn-outline-primary btn-sm"
-        id="date-picker-inline"
-        onClick={onClick}
-        ref={ref}
-      >
-        {value}
-      </button>
-    </div>
-  ));
 
   const handleChange = (event) => {
     const { id, value } = event.target;
@@ -93,19 +79,36 @@ const Mainbar = (props) => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch(
-      setData(
-        inputData.stateName,
-        inputData.guests,
-        inputData.startDate,
-        inputData.endDate
-      )
-    );
-    history.push("/main/hotels");
+    const locValue = document.getElementById("stateName").value;
+    console.log(locValue);
+    if (locValue) {
+      setvalid(true);
+      dispatch(
+        setData(
+          inputData.stateName,
+          inputData.guests,
+          inputData.startDate,
+          inputData.endDate
+        )
+      );
+      history.push("/main/hotels");
+    } else {
+      setvalid(false);
+      setOpen(true);
+    }
   };
 
   return (
     <div className="master">
+      {!valid && (
+        <div className={classes.root}>
+          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity="error">
+              Select a location
+            </Alert>
+          </Snackbar>
+        </div>
+      )}
       <form>
         <div class="location-main" style={{ display: "inline-block" }}>
           <label htmlFor="location" class="form-label">
@@ -118,9 +121,16 @@ const Mainbar = (props) => {
             class="form-select"
             aria-label="State select"
           >
-            <option selected>
-              {inputData.stateName ? inputData.stateName : "Select Location"}
-            </option>
+            {inputData.stateName ? (
+              <option selected value={inputData.stateName}>
+                {inputData.stateName}
+              </option>
+            ) : (
+              <option selected value="">
+                "Select Location"
+              </option>
+            )}
+
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Assam">Assam</option>
             <option value="Chhattisgarh">Chhattisgarh</option>

@@ -13,7 +13,7 @@ import BookingHistory from "./BookingHistory";
 import { useDispatch } from "react-redux";
 import { logout } from "../Redux/logoutAction";
 import imgsrc from "../new_logo_full.png";
-import "./MainComponents/hotelList.css";
+import "./Main2Components/hotelList.css";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {

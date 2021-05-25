@@ -4,7 +4,7 @@ import Modal from "@material-ui/core/Modal";
 import { StyledLink } from "../StyledCompo";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import { useHistory } from "react-router";
-import "./Checkout.css"
+import "./Checkout.css";
 
 function getModalStyle() {
   const top = 50;
@@ -61,7 +61,11 @@ export default function BookButton(props) {
   return (
     <div>
       <div onClick={handleOpen} className="item d-grid" id="item3">
-        <button onClick={props.bookFunc} class="btn btn-primary book-button-checkout" type="button">
+        <button
+          onClick={props.bookFunc}
+          class="btn btn-primary book-button-checkout"
+          type="button"
+        >
           BOOK NOW
         </button>
       </div>

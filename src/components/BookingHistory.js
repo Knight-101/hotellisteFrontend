@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
-import BookingTable from "./MainComponents/BookingTable";
+import BookingTable from "./Main1Components/BookingTable";
 import { StyledLink } from "./StyledCompo";
 
 function getModalStyle() {
