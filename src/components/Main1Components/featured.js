@@ -33,9 +33,7 @@ const Featured = (props) => {
   if (isLoaded) {
     return (
       <div className="master-main">
-        <div className="heading-master">
-          <h2 style={{ color: "#0d8f8f" }}>Featured</h2>
-        </div>
+        <div className="heading-master">Featured</div>
         <div className="card-master-1">
           <Card
             image_src={items[0].Image}

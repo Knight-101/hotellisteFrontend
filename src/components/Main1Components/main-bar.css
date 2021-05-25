@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 .master {
   display: grid;
   width: 60%;
   margin: auto;
   margin-top: 1rem;
   padding: 5px 20px;
-  border-radius: 10px 10px 0 0 ;
+  border-radius: 10px 10px 0 0;
   border-top: 5px solid #0d8f8f;
   border-right: 5px solid #0d8f8f;
   border-left: 5px solid #0d8f8f;
@@ -58,6 +60,11 @@
 .date-end-main {
   font-size: 1rem !important;
 }
+
+.font-style {
+  font-family: "Montserrat", sans-serif;
+}
+
 @media (max-width: 900px) {
   .master {
     width: 100%;

@@ -7,11 +7,10 @@ import Footer from "./Footer";
 import Fancybutton from "./fancy_button";
 import { useHistory } from "react-router";
 
-
 const Home = () => {
   const [vantaEffect, setVantaEffect] = useState(0);
   const myRef = useRef(null);
-  const history = useHistory()
+  const history = useHistory();
   useEffect(() => {
     if (!vantaEffect) {
       setVantaEffect(
@@ -41,12 +40,20 @@ const Home = () => {
         <div className="svgbg" ref={myRef}></div>
         <div className="hotelliste">
           <div className="text-master">
-            <div className="name-mas"><img src="Images/new_logo_big.png" className="hos-logo"></img></div>
-            <div className="quote-mas">
-              Hospitality is making your guests feel like home, even if you wish
-              they were.
+            <div className="name-mas">
+              <img
+                src="Images/new_logo_big.png"
+                className="hos-logo"
+                alt="logo-full"
+              ></img>
             </div>
-            <Fancybutton onClick={() => history.push("/login")} inside="Get started..."></Fancybutton>
+            <div className="quote-mas">
+              A place where you can find an escape from home life.
+            </div>
+            <Fancybutton
+              onClick={() => history.push("/login")}
+              inside="Get started..."
+            ></Fancybutton>
           </div>
         </div>
       </div>

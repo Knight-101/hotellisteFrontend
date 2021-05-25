@@ -109,16 +109,16 @@ const Mainbar = (props) => {
           </Snackbar>
         </div>
       )}
-      <form>
-        <div class="location-main" style={{ display: "inline-block" }}>
-          <label htmlFor="location" class="form-label">
-            Location&nbsp;
+      <form className="font-style">
+        <div className="location-main" style={{ display: "inline-block" }}>
+          <label htmlFor="location" className="form-label label-style">
+            <b>Location</b>&nbsp;
           </label>
           <select
             onChange={handleChange}
             name="location"
             id="stateName"
-            class="form-select"
+            className="form-select"
             aria-label="State select"
           >
             {inputData.stateName ? (
@@ -127,7 +127,7 @@ const Mainbar = (props) => {
               </option>
             ) : (
               <option selected value="">
-                "Select Location"
+                Select Location
               </option>
             )}
 
@@ -152,18 +152,18 @@ const Mainbar = (props) => {
             <option value="">All</option>
           </select>
         </div>
-        <div class="guests-main" style={{ display: "inline-block" }}>
-          <label htmlFor="guests" class="form-label">
-            Guests
+        <div className="guests-main" style={{ display: "inline-block" }}>
+          <label htmlFor="guests" className="form-label">
+            <b>Guests</b>
           </label>
           <input
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             id="guests"
             placeholder=""
             type="number"
             value={inputData.guests}
-            min={0}
+            min={1}
           />
         </div>
 
