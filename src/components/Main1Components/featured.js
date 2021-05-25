@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./featured.css";
 import Card from "./card";
 import { useHistory } from "react-router";
@@ -9,13 +8,6 @@ const Featured = (props) => {
   const [items, setItems] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
   const baseurl = "http://127.0.0.1:8000/hotels/list/rating/5";
-
-  const fetchdata = () => {
-    axios
-      .get(baseurl)
-      .then((response) => console.log(response))
-      .catch((err) => console.error("what", err));
-  };
 
   useEffect(() => {
     fetch(baseurl)
@@ -27,7 +19,6 @@ const Featured = (props) => {
       .catch((error) => {
         console.log(error);
       });
-    // fetchdata();
   }, []);
 
   if (isLoaded) {

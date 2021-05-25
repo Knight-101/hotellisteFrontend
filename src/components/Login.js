@@ -87,7 +87,7 @@ function Login() {
         console.log(res.data);
         if (res.data.ok) {
           localStorage.setItem("token", res.data.token);
-        } else console.log("errror");
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -99,7 +99,6 @@ function Login() {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
-        console.log(res.data);
         const bookings = res.data.bookings;
         const len = bookings.length;
         for (let i = 0; i < len; i++) {

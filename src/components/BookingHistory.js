@@ -43,9 +43,9 @@ export default function BookingHistory() {
     <div style={modalStyle} className={classes.paper}>
       <h2 id="simple-modal-title">Booking History</h2>
       <hr></hr>
-      <p id="simple-modal-description">
+      <div id="simple-modal-description">
         <BookingTable />
-      </p>
+      </div>
       <div style={{ textAlign: "right" }} onClick={handleClose}>
         <StyledLink to="/main">Close</StyledLink>
       </div>

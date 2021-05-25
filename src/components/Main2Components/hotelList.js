@@ -13,7 +13,6 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { it } from "date-fns/locale";
 
 const HotelList = () => {
   const [items, setItems] = useState([]);
@@ -45,7 +44,6 @@ const HotelList = () => {
     const prices = params.price_value;
     const rating = params.rating_value;
 
-    // setItems(items.sort(sortByProperty("price"))); // sortclick func
     switch (sortValue) {
       case 1:
         setItems(baseitems.sort(lowToHigh("price")));
@@ -74,10 +72,6 @@ const HotelList = () => {
     );
   };
 
-  // const sortclick = () => {
-  //   setItems(items.sort(sortByProperty("price")));
-  // };
-
   useEffect(() => {
     featuredIndex
       ? fetch(baseurl + "rating/5")
@@ -99,7 +93,7 @@ const HotelList = () => {
           .catch((error) => {
             console.log(error);
           });
-  }, [location]);
+  }, [location, featuredIndex]);
 
   return (
     <div className="mega-master">
@@ -132,14 +126,10 @@ const HotelList = () => {
           </AccordionDetails>
         </Accordion>
       </div>
-
-      {/* <Rangeslider />
-      <button onClick={handleclick}>refresh</button>
-      <button onClick={sortclick}>Refresh 2</button>
-      <Sorting handle_smth={() => console.log("working")} /> */}
       <div id="listBody">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <Hotelres
+            key={index}
             name={item.Name}
             location={item.location.cityName}
             image={item.Image}

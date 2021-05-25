@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 #checkout-master {
   display: grid;
   grid-template-columns: 7fr 2fr;
   grid-gap: 1rem;
   margin: 7vw 8vw;
   color: white;
+  font-family: "Montserrat", sans-serif;
 }
 .background-checkout{
   background-attachment: fixed;
@@ -37,6 +40,14 @@ body{
 #item1 #contents {
   padding: 2rem;
 }
+
+#maphead{
+   color: #0d8f8f;
+   text-align: center;
+   font-size: 50px;
+}
+
+
 
 #hotelData {
   display: grid;
@@ -85,6 +96,10 @@ body{
     margin-top: 3rem;
     border: solid #0d8f8f;
     padding: 1rem;
+  }
+
+  #maphead{
+    font-size: 40px;
   }
 }
 
