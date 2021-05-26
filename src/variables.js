@@ -1,4 +1,4 @@
-export const BASE_URL = "http://127.0.0.1:8000";
+export const BASE_URL = "https://blooming-stream-52281.herokuapp.com";
 export const CLIENT_ID =
   "748585597980-itpm246tobmeti2q1fnrgloi3r8v1cgf.apps.googleusercontent.com";
 export const MAP_ACCESS_TOKEN =
