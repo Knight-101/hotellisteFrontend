@@ -57,9 +57,9 @@ export default function NavBar() {
       history.push("/");
     }
   };
-
+  const clientId = CLIENT_ID;
   const { signOut } = useGoogleLogout({
-    CLIENT_ID,
+    clientId,
     onLogoutSuccess,
     onFailure,
   });
