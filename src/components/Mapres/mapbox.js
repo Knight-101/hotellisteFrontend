@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { MAP_ACCESS_TOKEN } from "../../variables";
 import "./mapbox.css";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 const Mapbox = (props) => {
   const [hotel, setHotel] = useState(null);
