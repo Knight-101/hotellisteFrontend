@@ -118,7 +118,7 @@ function Login() {
   };
 
   const failureGoogle = (res) => {
-    console.log("Failure to sign in");
+    console.log(res);
   };
 
   return (
