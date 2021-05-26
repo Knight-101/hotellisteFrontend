@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { setBookingData } from "../Redux/bookingData/bookingDataActions";
 import { BASE_URL, CLIENT_ID } from "../variables";
 
+
 function Login() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -122,7 +123,7 @@ function Login() {
   };
 
   return (
-    <div>
+    <div className="auth-parent">
       <div className="authDiv">
         <main className="form-signin">
           <form style={{ lineHeight: "5rem" }}>
@@ -172,16 +173,6 @@ function Login() {
             >
               <Link
                 style={{
-                  color: "#0d8f8f",
-                  textDecoration: "none",
-                }}
-                to="/register"
-              >
-                Forgot Password?
-              </Link>
-              <Link
-                style={{
-                  paddingLeft: "8rem",
                   color: "#0d8f8f",
                   textDecoration: "none",
                 }}

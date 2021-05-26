@@ -13,7 +13,9 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 import { BASE_URL } from "../../variables";
+import Loader from "../LoaderComponents/loader";
 
 const HotelList = () => {
   const [items, setItems] = useState([]);
@@ -21,6 +23,7 @@ const HotelList = () => {
   const location = useSelector((state) => state.input.stateName);
   const baseurl = BASE_URL + "/hotels/list/";
   const featuredIndex = localStorage.getItem("featuredIndex");
+  const [loaded, isLoaded] = useState(false);
 
   function lowToHigh(property) {
     //sanskar
@@ -80,6 +83,7 @@ const HotelList = () => {
           .then((json) => {
             const newItems = [json[featuredIndex]];
             setItems(newItems);
+            isLoaded(true);
             localStorage.removeItem("featuredIndex");
           })
           .catch((error) => {
@@ -90,6 +94,7 @@ const HotelList = () => {
           .then((json) => {
             setItems(json);
             setBaseitems(json);
+            isLoaded(true);
           })
           .catch((error) => {
             console.log(error);
@@ -98,6 +103,7 @@ const HotelList = () => {
 
   return (
     <div className="mega-master">
+      {!loaded && <Loader></Loader>}
       <Mainbar />
       {/* <Searchbutton /> */}
       <div className="accordion">

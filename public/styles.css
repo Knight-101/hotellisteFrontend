@@ -3,15 +3,17 @@ body {
   background-color: #000000;
 }
 .authDiv {
-  margin: auto;
   width: 32vw;
-  margin-top: 15vh;
   background-color: rgb(58, 58, 58);
   padding: 1.5rem;
   border-radius: 10px;
+  min-width: 300px;
 }
-#google {
-  margin-top: 5vh;
+.auth-parent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 #Head {

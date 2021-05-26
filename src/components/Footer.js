@@ -4,7 +4,6 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import "./Footer.css";
-import { Link } from "react-router-dom";
 
 function Footer() {
   const year = new Date().getFullYear();
@@ -15,50 +14,50 @@ function Footer() {
           <div className="dev">
             <h4>Sanskar Mohapatra</h4>
             <p>Full stack Dev</p>
-            <Link className="social">
+            <a href="https://www.instagram.com/__sanskar0520/" target="_blank" rel="noreferrer" className="social">
               <InstagramIcon />
-            </Link>
-            <Link className="social">
+            </a >
+            <a href="https://github.com/Sanskar0520" target="_blank" rel="noreferrer" className="social">
               <GitHubIcon />
-            </Link>
-            <Link className="social">
+            </a >
+            <a href="https://www.linkedin.com/in/sanskar-mohapatra-51215815a/" target="_blank" rel="noreferrer" className="social">
               <LinkedInIcon />
-            </Link>
-            <Link className="social">
+            </a >
+            <a href="https://twitter.com/SanskarMohapat1" target="_blank" rel="noreferrer" className="social">
               <TwitterIcon />
-            </Link>
+            </a >
           </div>
           <div className="dev">
             <h4>Krishanu Shah</h4>
             <p>Frontend Dev</p>
-            <Link className="social">
+            <a href="https://www.instagram.com/krishanuuuu/" target="_blank" rel="noreferrer" className="social">
               <InstagramIcon />
-            </Link>
-            <Link className="social">
+            </a >
+            <a href="https://github.com/krishanu-xc" target="_blank" rel="noreferrer" className="social">
               <GitHubIcon />
-            </Link>
-            <Link className="social">
+            </a >
+            <a href="www.linkedin.com/in/krishanu-xc-shah" target="_blank" rel="noreferrer" className="social">
               <LinkedInIcon />
-            </Link>
-            <Link className="social">
+            </a >
+            <a href="https://twitter.com/krishanuuwu" target="_blank" rel="noreferrer" className="social">
               <TwitterIcon />
-            </Link>
+            </a >
           </div>
           <div className="dev">
             <h4>Divyanshi Chouksey</h4>
             <p>UI/UX Designer</p>
-            <Link className="social">
+            <a href="https://www.instagram.com/divyanshi_0402/" target="_blank" rel="noreferrer" className="social">
               <InstagramIcon />
-            </Link>
-            <Link className="social">
+            </a >
+            <a href="https://github.com/divyanshi-0402" target="_blank" rel="noreferrer" className="social">
               <GitHubIcon />
-            </Link>
-            <Link className="social">
+            </a >
+            <a href="https://www.linkedin.com/in/divyanshi-chouksey-9917b9204" target="_blank" rel="noreferrer" className="social">
               <LinkedInIcon />
-            </Link>
-            <Link className="social">
+            </a >
+            <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noreferrer" className="social">
               <TwitterIcon />
-            </Link>
+            </a >
           </div>
         </div>
         <p id="copyright">ⓒ {year} Hotelliste All Rights Reserved.</p>

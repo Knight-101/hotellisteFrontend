@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import React from "react";
+import React, { useState } from "react";
 import BookButton from "./CheckOutCompo/BookButton";
 import "./CheckOutCompo/Checkout.css";
 import NavBar from "./Navbar";
@@ -8,8 +8,10 @@ import { setBookingData } from "../Redux/bookingData/bookingDataActions";
 import Footer from "./Footer";
 import Mapbox from "./Mapres/mapbox";
 import { BASE_URL } from "../variables";
+import Loader from "./LoaderComponents/loader";
 
 function Checkout() {
+  const [loaded, isLoaded] = useState(false);
   const dispatch = useDispatch();
   const HotelData = JSON.parse(localStorage.getItem("HotelData"));
   const LocationData = JSON.parse(localStorage.getItem("LocationData"));
@@ -20,6 +22,10 @@ function Checkout() {
     HotelData.hotelPrice * (1 - HotelData.hotelDiscount / 100)
   );
   const priceTax = parseInt(0.18 * priceBeforetax);
+
+  setTimeout(() => {
+    isLoaded(true)
+  }, 1500);
 
   function GetFormattedDate(date) {
     var todayTime = new Date(date);
@@ -56,8 +62,9 @@ function Checkout() {
 
   return (
     <div className="background-checkout">
+      {!loaded && <Loader></Loader>}
       <NavBar />
-      <div id="checkout-master">
+      {loaded && <div id="checkout-master">
         <div className="item" id="item1">
           <div id="contents">
             <h4>Booking Details</h4>
@@ -117,6 +124,15 @@ function Checkout() {
             <h4>Price Break-Up</h4>
             <hr></hr>
             <div id="breakup">
+            <div>Individual Price </div>
+              <div>
+                <span>&#8377;</span>
+                {parseInt(HotelData.hotelPrice / HotelData.hotelGuests)}
+              </div>
+              <div>No. of guests </div>
+              <div>
+                {HotelData.hotelGuests}
+              </div>
               <div>Base Price </div>
               <div>
                 <span>&#8377;</span>
@@ -149,9 +165,9 @@ function Checkout() {
         <div id="item3">
           <BookButton bookFunc={Book} />
         </div>
-      </div>
-      <div id="maphead">Discover more</div>
-      <div className="map-wrap">
+      </div>}
+      {loaded && <div id="maphead">Discover more</div>}
+      {loaded && <div className="map-wrap">
         <Mapbox
           latitude={LocationData.longitude}
           longitude={LocationData.latitude}
@@ -159,8 +175,8 @@ function Checkout() {
           location={HotelData.hotelLocation}
           image={HotelData.hotelImg}
         ></Mapbox>
-      </div>
-      <Footer />
+      </div>}
+      {loaded && <Footer />}
     </div>
   );
 }
