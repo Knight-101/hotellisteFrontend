@@ -5,9 +5,11 @@ import * as THREE from "three";
 import Footer from "./Footer";
 import Fancybutton from "./fancy_button";
 import { useHistory } from "react-router";
+import Loader from "./LoaderComponents/loader";
 
 const Home = () => {
   const [vantaEffect, setVantaEffect] = useState(0);
+  const [loaded, isLoaded] = useState(false);
   const myRef = useRef(null);
   const history = useHistory();
   useEffect(() => {
@@ -29,12 +31,19 @@ const Home = () => {
         })
       );
     }
+
     return () => {
       if (vantaEffect) vantaEffect.destroy();
     };
   }, [vantaEffect]);
+
+  setTimeout(() => {
+    isLoaded(true)
+  }, 1500);
+
   return (
     <div className="home-master">
+      {!loaded && <Loader></Loader>}
       <div className="main-home">
         <div className="svgbg" ref={myRef}></div>
         <div className="hotelliste">
@@ -47,7 +56,7 @@ const Home = () => {
               ></img>
             </div>
             <div className="quote-mas">
-              A place where you can find an escape from home life.
+              The art of hospitality is to make guests feel at home when you wish they were.
             </div>
             <Fancybutton
               onClick={() => history.push("/login")}
