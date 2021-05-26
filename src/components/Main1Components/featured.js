@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./featured.css";
 import Card from "./card";
 import { useHistory } from "react-router";
+import { BASE_URL } from "../../variables";
 
 const Featured = (props) => {
   const history = useHistory();
   const [items, setItems] = useState([]);
   const [isLoaded, setLoaded] = useState(false);
-  const baseurl = "http://127.0.0.1:8000/hotels/list/rating/5";
+  const baseurl = BASE_URL + "/hotels/list/rating/5";
 
   useEffect(() => {
     fetch(baseurl)
@@ -19,7 +20,7 @@ const Featured = (props) => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [baseurl]);
 
   if (isLoaded) {
     return (

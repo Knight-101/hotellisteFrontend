@@ -11,7 +11,6 @@ function Footer() {
   return (
     <div className="footer">
       <footer>
-        {/* <h3 style={{ textAlign: "left" }}>Developed By -</h3> */}
         <div className="devs">
           <div className="dev">
             <h4>Sanskar Mohapatra</h4>

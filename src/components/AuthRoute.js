@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Route, Redirect, useHistory } from "react-router-dom";
+import { BASE_URL } from "../variables";
 
 const AuthRoute = ({ component: Component, ...rest }) => {
   const [auth, setauth] = useState(true);
   const history = useHistory();
   axios
-    .get("http://localhost:8000/main", {
+    .get(BASE_URL + "/main", {
       headers: { Authorization: localStorage.getItem("token") },
     })
     .then((res) => {

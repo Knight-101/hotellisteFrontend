@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
+import { MAP_ACCESS_TOKEN } from "../../variables";
 import "./mapbox.css";
 
 const Mapbox = (props) => {
@@ -17,9 +18,7 @@ const Mapbox = (props) => {
     <div style={{ width: "100%", height: "100%" }}>
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={
-          "pk.eyJ1Ijoia3Jpc2hhbnUteGMiLCJhIjoiY2twMnRjYmI2MWhyNTJvbngyMzUzdWphbSJ9.PAYAcxcCLU4BAOQsTJnBXg"
-        }
+        mapboxApiAccessToken={MAP_ACCESS_TOKEN}
         mapStyle="mapbox://styles/krishanu-xc/ckp2ub5rt0wd817phwu31kb20"
         onViewportChange={(viewport) => setViewport(viewport)}
       >

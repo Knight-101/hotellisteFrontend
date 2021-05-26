@@ -14,6 +14,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../Redux/logoutAction";
 import imgsrc from "../new_logo_full.png";
 import "./Main2Components/hotelList.css";
+import { BASE_URL, CLIENT_ID } from "../variables";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -31,15 +32,13 @@ export default function NavBar() {
   const [fname, setFname] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const clientId =
-    "658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com";
   const history = useHistory();
   const onFailure = (e) => {
     console.log(e);
   };
   useEffect(() => {
     axios
-      .get("http://localhost:8000/main", {
+      .get(BASE_URL + "/main", {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
@@ -60,7 +59,7 @@ export default function NavBar() {
   };
 
   const { signOut } = useGoogleLogout({
-    clientId,
+    CLIENT_ID,
     onLogoutSuccess,
     onFailure,
   });

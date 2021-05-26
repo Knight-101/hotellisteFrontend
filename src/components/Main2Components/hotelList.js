@@ -13,12 +13,13 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { BASE_URL } from "../../variables";
 
 const HotelList = () => {
   const [items, setItems] = useState([]);
   const [baseitems, setBaseitems] = useState([]);
   const location = useSelector((state) => state.input.stateName);
-  const baseurl = "http://127.0.0.1:8000/hotels/list/";
+  const baseurl = BASE_URL + "/hotels/list/";
   const featuredIndex = localStorage.getItem("featuredIndex");
 
   function lowToHigh(property) {
@@ -93,7 +94,7 @@ const HotelList = () => {
           .catch((error) => {
             console.log(error);
           });
-  }, [location, featuredIndex]);
+  }, [location, featuredIndex, baseurl]);
 
   return (
     <div className="mega-master">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { BASE_URL } from "../variables";
 
 function Register() {
   const history = useHistory();
@@ -29,7 +30,7 @@ function Register() {
   const submitHandler = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/auth/register", userData)
+      .post(BASE_URL + "/auth/register", userData)
       .then(() => {
         history.push("/login");
       })

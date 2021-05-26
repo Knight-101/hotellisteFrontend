@@ -7,6 +7,7 @@ import NavBar from "./Navbar";
 import { setBookingData } from "../Redux/bookingData/bookingDataActions";
 import Footer from "./Footer";
 import Mapbox from "./Mapres/mapbox";
+import { BASE_URL } from "../variables";
 
 function Checkout() {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ function Checkout() {
     };
     axios
       .post(
-        "http://localhost:8000/hotels/book",
+        BASE_URL + "/hotels/book",
 
         booking,
         { headers: { Authorization: localStorage.getItem("token") } }
@@ -149,9 +150,7 @@ function Checkout() {
           <BookButton bookFunc={Book} />
         </div>
       </div>
-      <div id="maphead">
-        Discover more
-      </div>
+      <div id="maphead">Discover more</div>
       <div className="map-wrap">
         <Mapbox
           latitude={LocationData.longitude}

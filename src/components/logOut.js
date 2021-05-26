@@ -1,10 +1,9 @@
 import React from "react";
 import { useGoogleLogout } from "react-google-login";
 import { useHistory } from "react-router-dom";
+import { CLIENT_ID } from "../../variables";
 
 function LogOut() {
-  const clientId =
-    "658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com";
   const history = useHistory();
   const onFailure = (e) => {
     console.log(e);
@@ -20,7 +19,7 @@ function LogOut() {
   };
 
   const { signOut } = useGoogleLogout({
-    clientId,
+    CLIENT_ID,
     onLogoutSuccess,
     onFailure,
   });

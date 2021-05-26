@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setBookingData } from "../Redux/bookingData/bookingDataActions";
+import { BASE_URL, CLIENT_ID } from "../variables";
 
 function Login() {
   const dispatch = useDispatch();
@@ -30,11 +31,11 @@ function Login() {
       history.push("/main");
     }
   });
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
 
-    axios
-      .post("http://localhost:8000/auth/login", userData)
+    await axios
+      .post(BASE_URL + "/auth/login", userData)
       .then((res) => {
         if (res.data === '"email" must be a valid email') {
           setfail("Enter a valid email(abc@def.xy)");
@@ -46,6 +47,7 @@ function Login() {
               setfail("Email or Password does not match our records");
             } else {
               localStorage.setItem("token", res.data);
+              localStorage.setItem("auth", true);
             }
           }
         }
@@ -54,19 +56,24 @@ function Login() {
         console.log(error);
       });
 
-    //getting booking history and storing in redux
-    axios
-      .get("http://localhost:8000/main", {
+    // getting booking history and storing in redux
+    await axios
+      .get(BASE_URL + "/main", {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
-        console.log(res.data);
-        const bookings = res.data.bookings;
-        const len = bookings.length;
-        for (let i = 0; i < len; i++) {
-          dispatch(setBookingData(bookings[i]));
+        const auth = localStorage.getItem("auth");
+        if (auth) {
+          const bookings = res.data.bookings;
+          if (bookings) {
+            const len = bookings.length;
+            for (let i = 0; i < len; i++) {
+              dispatch(setBookingData(bookings[i]));
+            }
+          }
+
+          history.push("/main");
         }
-        history.push("/main");
       })
       .catch((error) => {
         console.log(error);
@@ -79,12 +86,11 @@ function Login() {
 
     //posting oauth data
     await axios
-      .post("http://localhost:8000/auth/oauthlogin", {
+      .post(BASE_URL + "/auth/oauthlogin", {
         access_token: accessToken,
         email: email,
       })
       .then((res) => {
-        console.log(res.data);
         if (res.data.ok) {
           localStorage.setItem("token", res.data.token);
         }
@@ -95,7 +101,7 @@ function Login() {
 
     //getting booking history and storing in redux
     await axios
-      .get("http://localhost:8000/main", {
+      .get(BASE_URL + "/main", {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
@@ -211,12 +217,12 @@ function Login() {
         <div id="google">
           <GoogleLogin
             className="aaa"
-            clientId="629232215186-5bhij4sts5mhvgeu2r4b6qisc7tdthnd.apps.googleusercontent.com"
+            clientId={CLIENT_ID}
             buttonText="Sign in with Google"
             onSuccess={responseGoogle}
             onFailure={failureGoogle}
             isSignedIn={true}
-            redirectUri="http://localhost:3000/main"
+            redirectUri={BASE_URL + "/main"}
             cookiePolicy={"single_host_origin"}
           />
         </div>

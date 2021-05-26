@@ -120,7 +120,6 @@ const Mainbar = (props) => {
             id="stateName"
             className="form-select"
             aria-label="State select"
-            defaultValue=""
           >
             {inputData.stateName ? (
               <option selected value={inputData.stateName}>

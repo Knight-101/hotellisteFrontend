@@ -9,7 +9,6 @@ function Main2() {
     <div className="main2-master" style={{ backgroundColor: "#000000" }}>
       <NavBar />
       <HotelList />
-      {/* <button onClick={signOut}>Log Out</button> */}
       <Footer />
     </div>
   );

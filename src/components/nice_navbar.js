@@ -12,6 +12,7 @@ import axios from "axios";
 import BookingHistory from "./BookingHistory";
 import { useDispatch } from "react-redux";
 import { logout } from "../Redux/logoutAction";
+import { BASE_URL, CLIENT_ID } from "../variables";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -29,15 +30,13 @@ export default function NavBar() {
   const [fname, setFname] = useState("");
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const clientId =
-    "658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com";
   const history = useHistory();
   const onFailure = (e) => {
     console.log(e);
   };
   useEffect(() => {
     axios
-      .get("http://localhost:8000/main", {
+      .get(BASE_URL + "/main", {
         headers: { Authorization: localStorage.getItem("token") },
       })
       .then((res) => {
@@ -53,10 +52,10 @@ export default function NavBar() {
     if (isTokenExists) {
       dispatch(logout());
       localStorage.clear();
-      history.push("/login");
+      history.push("/");
     }
   };
-
+  const clientId = CLIENT_ID;
   const { signOut } = useGoogleLogout({
     clientId,
     onLogoutSuccess,
@@ -82,7 +81,9 @@ export default function NavBar() {
         position="static"
       >
         <Toolbar>
-          <div style={{position: "absolute",top: 10, right: 10, zIndex: 999}}>
+          <div
+            style={{ position: "absolute", top: 10, right: 10, zIndex: 999 }}
+          >
             <IconButton
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -90,7 +91,10 @@ export default function NavBar() {
               onClick={handleMenu}
               color="inherit"
             >
-              <AccountCircle style={{ fontSize: 50 }} className="account-circle" />
+              <AccountCircle
+                style={{ fontSize: 50 }}
+                className="account-circle"
+              />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -107,9 +111,7 @@ export default function NavBar() {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose}>
-                Welcome, {fname}
-              </MenuItem>
+              <MenuItem onClick={handleClose}>Welcome, {fname}</MenuItem>
               <hr></hr>
               <MenuItem onClick={handleClose}>
                 <BookingHistory />
