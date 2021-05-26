@@ -8,7 +8,7 @@ import walletDataReducer from "./walletData/walletDataReducers";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["input"],
+  whitelist: ["input", "booking", "wallet"],
 };
 
 const appReducer = combineReducers({
